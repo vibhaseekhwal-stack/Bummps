@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="goldHeart" x1="4" y1="6" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M16 28.5C16 28.5 3 20.5 3 11.8C3 7.8 6.2 4.6 10.1 4.6C12.6 4.6 14.8 5.9 16 7.9C17.2 5.9 19.4 4.6 21.9 4.6C25.8 4.6 29 7.8 29 11.8C29 20.5 16 28.5 16 28.5Z"
+    fill="url(#goldHeart)"
+  />
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <defs>
+    <!-- Metallic Gold Linear Gradient -->
+    <linearGradient id="bummpsGoldFavicon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E079" />
+      <stop offset="50%" stop-color="#D5AB55" />
+      <stop offset="100%" stop-color="#A27928" />
+    </linearGradient>
+  </defs>
+
+  <!-- Top Floating Heart -->
+  <path
+    d="M 54,18 C 50,11 40,15 44,22 C 48,29 55,33 55,33 C 55,33 62,29 66,22 C 70,15 60,11 56,18 Z"
+    fill="none"
+    stroke="url(#bummpsGoldFavicon)"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Inner Curved Line -->
+  <path
+    d="M 37,30 L 37,60 C 37,78 58,78 58,60 C 58,42 37,42 37,42"
+    fill="none"
+    stroke="url(#bummpsGoldFavicon)"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Outer Curved Line -->
+  <path
+    d="M 27,24 L 27,65 C 27,90 68,90 68,60 C 68,32 37,32 37,32"
+    fill="none"
+    stroke="url(#bummpsGoldFavicon)"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
