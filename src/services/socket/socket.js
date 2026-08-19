@@ -6,13 +6,21 @@ let socket = null;
 
 export const connectSocket = () => {
     const token = localStorage.getItem("token");
-    if (!token) return null;
 
-    if (socket) return socket;
+    if (!token) {
+        console.error("[socket] No token found");
+        return null;
+    }
+
+    if (socket) {
+        return socket;
+    }
 
     socket = io(SOCKET_URL, {
-        auth: (cb) => cb({ token: localStorage.getItem("token") }),
-        transports: ["websocket"],
+        auth: {
+            token,
+        },
+        transports: ["polling"],
         upgrade: false,
         timeout: 20000,
         reconnection: true,
@@ -31,13 +39,14 @@ export const connectSocket = () => {
 
     socket.on("disconnect", (reason) => {
         console.warn("[socket] disconnected:", reason);
+
         if (reason === "io server disconnect") {
             socket = null;
         }
     });
 
     socket.on("reconnect_failed", () => {
-        console.error("[socket] reconnect_failed — giving up, resetting instance");
+        console.error("[socket] reconnect_failed");
         socket = null;
     });
 
@@ -57,26 +66,52 @@ export const disconnectSocket = () => {
 export const emitWithTimeout = (event, data, timeoutMs = 15000) => {
     return new Promise((resolve, reject) => {
         const s = getSocket();
-        if (!s || !s.connected) {
-            reject(new Error("Socket not connected"));
+
+        if (!s) {
+            reject(new Error("Socket not initialized"));
             return;
         }
 
-        let settled = false;
+        const emitEvent = () => {
+            let settled = false;
 
-        const timer = setTimeout(() => {
-            if (!settled) {
-                settled = true;
-                reject(new Error(`"${event}" timed out after ${timeoutMs}ms`));
-            }
-        }, timeoutMs);
+            const timer = setTimeout(() => {
+                if (!settled) {
+                    settled = true;
+                    reject(
+                        new Error(
+                            `"${event}" timed out after ${timeoutMs}ms`
+                        )
+                    );
+                }
+            }, timeoutMs);
 
-        s.emit(event, data, (response) => {
-            if (!settled) {
-                settled = true;
-                clearTimeout(timer);
-                resolve(response);
-            }
-        });
+            s.emit(event, data, (response) => {
+                if (!settled) {
+                    settled = true;
+                    clearTimeout(timer);
+                    resolve(response);
+                }
+            });
+        };
+
+        if (s.connected) {
+            emitEvent();
+        } else {
+            const onConnect = () => {
+                s.off("connect", onConnect);
+                emitEvent();
+            };
+
+            s.once("connect", onConnect);
+
+            const onError = (err) => {
+                s.off("connect_error", onError);
+                s.off("connect", onConnect);
+                reject(err);
+            };
+
+            s.once("connect_error", onError);
+        }
     });
 };

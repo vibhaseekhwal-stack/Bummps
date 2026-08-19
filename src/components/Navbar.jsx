@@ -6,8 +6,9 @@ import { PiUserBold, PiSignOutBold, PiSparkleFill } from "react-icons/pi";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import BummpsLogo from "./BummpsLogo";
 
+// Fonts matching exact Hero styling configuration
 const displayFont = { fontFamily: '"Playfair Display", serif' };
-const bodyFont = { fontFamily: '"Plus_Jakarta_Sans", sans-serif' };
+const bodyFont = { fontFamily: '"Plus Jakarta Sans", sans-serif' };
 
 const publicNavLinks = [
   { label: "Home", to: "/" },
@@ -16,8 +17,6 @@ const publicNavLinks = [
   { label: "Plans", to: "/our-plans" },
   { label: "Contact", to: "/contact" },
 ];
-
-
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +33,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Background Scroll Lock (Screen chalti hui stop ho jayegi)
+  // Background Scroll Lock
   useEffect(() => {
     if (open || showLogoutModal) {
       document.body.style.overflow = "hidden";
@@ -71,10 +70,11 @@ export default function Navbar() {
     <>
       <header
         style={bodyFont}
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none border-b ${scrolled
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 select-none border-b ${
+          scrolled
             ? "border-[#DAB25A]/30 bg-[#121214]/95 backdrop-blur-2xl py-3 shadow-[0_10px_30px_rgba(0,0,0,0.9)]"
             : "border-[#DAB25A]/20 bg-[#121214]/80 backdrop-blur-xl py-4 sm:py-5"
-          }`}
+        }`}
       >
         <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#DAB25A]/10 via-transparent to-[#DAB25A]/10 blur-xl pointer-events-none" />
 
@@ -87,13 +87,14 @@ export default function Navbar() {
             <BummpsLogo className="h-8 sm:h-9" />
           </a>
 
-          {/* Desktop Links */}
+          {/* Desktop Links - Match Hero body font */}
           <nav className="hidden lg:flex items-center gap-8">
             {!isLoggedIn &&
               publicNavLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
+                  style={bodyFont}
                   className="text-xs uppercase tracking-widest font-semibold text-neutral-300 hover:text-[#DAB25A] transition-colors cursor-pointer relative group py-1"
                 >
                   {link.label}
@@ -106,6 +107,7 @@ export default function Navbar() {
                   <Link
                     key={path}
                     to={`/${path}`}
+                    style={bodyFont}
                     className="text-xs tracking-widest font-semibold text-neutral-300 hover:text-[#DAB25A] transition-colors relative group py-1 capitalize"
                   >
                     {path}
@@ -117,7 +119,7 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-3.5">
+          <div style={bodyFont} className="hidden lg:flex items-center gap-3.5">
             {isLoggedIn ? (
               <>
                 <Link
@@ -163,7 +165,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer (Solid Dark Screen - No Bleed through) */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -171,12 +173,11 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
+            style={bodyFont}
             className="fixed inset-0 w-full h-full bg-[#121214] lg:hidden flex flex-col justify-between p-6 pt-24 z-[999] overflow-hidden"
           >
-            {/* Soft Ambient Gold Glow */}
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#DAB25A]/10 blur-[100px] rounded-full pointer-events-none" />
 
-            {/* Back Button & Header inside Mobile Menu */}
             <div className="absolute top-4 left-6 right-6 flex items-center justify-between pb-4 border-b border-[#DAB25A]/15 z-20">
               <button
                 onClick={() => setOpen(false)}
@@ -192,7 +193,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Menu Links */}
+            {/* Menu Links with Playfair Display (like Hero Headings) */}
             <div className="relative flex flex-col gap-4 text-center my-auto z-10">
               {!isLoggedIn &&
                 publicNavLinks.map((link) => (
@@ -220,7 +221,6 @@ export default function Navbar() {
                 ))}
             </div>
 
-            {/* Bottom Actions */}
             <div className="relative flex flex-col gap-3 mb-4 w-full max-w-sm mx-auto z-10 pt-4 border-t border-[#DAB25A]/15">
               {isLoggedIn ? (
                 <button
@@ -263,7 +263,7 @@ export default function Navbar() {
       {showLogoutModal &&
         createPortal(
           <AnimatePresence>
-            <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+            <div style={bodyFont} className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

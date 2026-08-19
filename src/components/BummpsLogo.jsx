@@ -2,9 +2,7 @@ import logoImg from "../assets/logo.png";
 
 export default function BummpsLogo({ className = "h-9" }) {
   return (
-    <div
-      className={`flex items-center gap-2.5 select-none ${className}`}
-    >
+    <div className={`flex items-center gap-2.5 select-none ${className}`}>
       <img
         src={logoImg}
         alt="Bummps Logo"
@@ -12,7 +10,7 @@ export default function BummpsLogo({ className = "h-9" }) {
       />
 
       <span
-        style={{ fontFamily: '"Playfair Display", serif' }}
+        style={{ fontFamily: '"Poppins", "Montserrat", sans-serif' }}
         className="text-2xl font-bold tracking-tight text-[#DAB25A]"
       >
         bummps<span className="text-[#DAB25A]">.</span>

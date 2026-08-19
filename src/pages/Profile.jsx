@@ -13,8 +13,6 @@ import {
     PiHeartFill,
     PiXBold,
     PiArrowCounterClockwiseBold,
-    PiCaretLeftBold,
-    PiCaretRightBold,
     PiTranslateBold,
     PiSlidersHorizontalBold,
 } from "react-icons/pi";
@@ -61,7 +59,6 @@ export default function Profile() {
     const [errorMsg, setErrorMsg] = useState("");
     const [accountDeleted, setAccountDeleted] = useState(false);
     const [activePhoto, setActivePhoto] = useState(0);
-    const [photoDir, setPhotoDir] = useState(1);
 
     const [liking, setLiking] = useState(false);
     const [liked, setLiked] = useState(false);
@@ -206,7 +203,6 @@ export default function Profile() {
     useEffect(() => {
         if (photos.length <= 1) return;
         const interval = setInterval(() => {
-            setPhotoDir(1);
             setActivePhoto((prev) => (prev + 1) % photos.length);
         }, 3500);
         return () => clearInterval(interval);
@@ -249,7 +245,7 @@ export default function Profile() {
                     </button>
                     <button
                         onClick={resolveUser}
-                        className="rounded-full bg-[#DAB25A] hover:bg-[#c49e48] text-black text-xs font-bold uppercase tracking-wider px-6 py-3 transition-all active:scale-95 cursor-pointer shadow-[0_0_20px_rgba(218,178,90,0.3)]"
+                        className="rounded-full bg-[#DAB25A] hover:bg-[#c49e48] text-[#09090A] text-xs font-bold uppercase tracking-wider px-6 py-3 transition-all active:scale-95 cursor-pointer shadow-[0_0_20px_rgba(218,178,90,0.3)]"
                     >
                         Retry
                     </button>
@@ -264,20 +260,21 @@ export default function Profile() {
     return (
         <section
             style={bodyFont}
-            className="relative min-h-screen bg-[#09090A] text-white pt-24 pb-10 sm:pt-28 sm:pb-16 lg:pt-32 px-4 sm:px-6 lg:px-12 select-none overflow-hidden"
+            className="relative min-h-screen bg-[#09090A] text-white pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 select-none overflow-hidden flex items-start justify-center"
         >
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1000px] h-[550px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[180px] rounded-full pointer-events-none" />
-            <div className="absolute top-10 left-10 w-80 h-80 bg-[#DAB25A]/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#DAB25A]/8 blur-[140px] rounded-full pointer-events-none" />
+            {/* Ambient Background Aura */}
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[90vw] max-w-[1000px] h-[500px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
+            <div className="absolute top-10 left-10 w-72 h-72 bg-[#DAB25A]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#DAB25A]/8 blur-[130px] rounded-full pointer-events-none" />
 
-            <div className="mx-auto max-w-6xl relative z-10">
+            <div className="mx-auto max-w-5xl w-full relative z-10">
                 <AnimatePresence mode="wait">
                     {accountDeleted && (
                         <motion.p
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0 }}
-                            className="mb-6 rounded-2xl border border-[#DAB25A]/40 bg-[#DAB25A]/10 px-5 py-3.5 text-center text-xs font-semibold uppercase tracking-wider text-[#DAB25A] shadow-[0_0_25px_rgba(218,178,90,0.15)]"
+                            className="mb-4 rounded-2xl border border-[#DAB25A]/40 bg-[#DAB25A]/10 px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-[#DAB25A] shadow-[0_0_25px_rgba(218,178,90,0.15)]"
                         >
                             Account deleted successfully. Redirecting to login...
                         </motion.p>
@@ -288,7 +285,7 @@ export default function Profile() {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0 }}
-                            className="mb-6 rounded-2xl border border-[#DAB25A]/40 bg-[#DAB25A]/10 px-5 py-3.5 text-center text-xs font-semibold uppercase tracking-wider text-[#DAB25A] shadow-[0_0_25px_rgba(218,178,90,0.15)]"
+                            className="mb-4 rounded-2xl border border-[#DAB25A]/40 bg-[#DAB25A]/10 px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-[#DAB25A] shadow-[0_0_25px_rgba(218,178,90,0.15)]"
                         >
                             {likeResult.isMatch
                                 ? `It's a Match! You and ${user.name || "this user"} connected!`
@@ -301,83 +298,52 @@ export default function Profile() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="rounded-[2.5rem] border border-[#DAB25A]/30 bg-gradient-to-b from-neutral-900/90 via-neutral-950/80 to-neutral-950/95 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden grid lg:grid-cols-12 gap-0"
+                    className="mt-2 sm:mt-4 rounded-3xl sm:rounded-[2.25rem] border border-[#DAB25A]/30 bg-neutral-950/80 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-hidden grid lg:grid-cols-12 gap-0"
                 >
-                    <div className="lg:col-span-5 p-6 lg:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 bg-neutral-950/50">
+                    {/* Left Column (Images & Actions) */}
+                    <div className="lg:col-span-5 p-4 sm:p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 bg-neutral-950/50">
                         <div>
-                            <div className="relative h-[320px] sm:h-[420px] lg:h-[460px] w-full rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] group border border-[#DAB25A]/20 bg-neutral-950">
+                            <div className="relative h-[260px] sm:h-[320px] lg:h-[380px] w-full rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.7)] group border border-[#DAB25A]/20 bg-neutral-900">
                                 <div
-                                    className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl opacity-40"
+                                    className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl opacity-40 transition-all duration-700"
                                     style={{
                                         backgroundImage: `url(${photos[activePhoto] || user.profilePic || user.photo})`,
                                     }}
                                 />
-                                <AnimatePresence initial={false} custom={photoDir} mode="popLayout">
+
+                                <AnimatePresence mode="popLayout">
                                     <motion.img
                                         key={activePhoto}
                                         src={photos[activePhoto] || user.profilePic || user.photo}
                                         alt={user.name || "profile"}
-                                        custom={photoDir}
-                                        initial={(dir) => ({ opacity: 0, x: dir * 60 })}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={(dir) => ({ opacity: 0, x: dir * -60 })}
-                                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                                        initial={{ opacity: 0, scale: 1.03 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.97 }}
+                                        transition={{ duration: 0.45, ease: "easeOut" }}
                                         className="absolute inset-0 h-full w-full object-contain"
                                     />
                                 </AnimatePresence>
-                                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-transparent to-transparent opacity-90 pointer-events-none" />
 
-                                {photos.length > 1 && (
-                                    <div className="absolute top-4 left-4 right-4 flex gap-1.5 z-20">
-                                        {photos.map((_, i) => (
-                                            <button
-                                                key={i}
-                                                type="button"
-                                                onClick={() => {
-                                                    setPhotoDir(i > activePhoto ? 1 : -1);
-                                                    setActivePhoto(i);
-                                                }}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
-
-                                {photos.length > 1 && (
-                                    <div className="absolute inset-0 flex z-10">
-                                        <div
-                                            className="w-1/2 h-full cursor-pointer flex items-center justify-start pl-3"
-                                            onClick={() => setActivePhoto((p) => (p - 1 + photos.length) % photos.length)}
-                                        >
-                                            <span className="p-2 rounded-full bg-black/50 text-white/70 opacity-80 hover:opacity-100 hover:bg-[#DAB25A] hover:text-black transition-all duration-300 backdrop-blur-md">
-                                                <PiCaretLeftBold size={20} />
-                                            </span>
-                                        </div>
-                                        <div
-                                            className="w-1/2 h-full cursor-pointer flex items-center justify-end pr-3"
-                                            onClick={() => setActivePhoto((p) => (p + 1) % photos.length)}
-                                        >
-                                            <span className="p-2 rounded-full bg-black/50 text-white/70 opacity-80 hover:opacity-100 hover:bg-[#DAB25A] hover:text-black transition-all duration-300 backdrop-blur-md">
-                                                <PiCaretRightBold size={20} />
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent pointer-events-none" />
 
                                 {user.isVerified && (
-                                    <div className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-neutral-950/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#DAB25A] border border-[#DAB25A]/30 shadow-lg">
-                                        <PiSealCheckFill className="text-base" /> Verified
+                                    <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-neutral-950/80 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#DAB25A] border border-[#DAB25A]/30 shadow-md">
+                                        <PiSealCheckFill className="text-sm" /> Verified
                                     </div>
                                 )}
                             </div>
 
+                            {/* Thumbnail Selector List */}
                             {photos.length > 1 && (
-                                <div className="flex gap-2.5 mt-4 overflow-x-auto pb-1">
+                                <div className="flex gap-2 mt-3 overflow-x-auto pb-1 justify-center sm:justify-start">
                                     {photos.map((img, i) => (
                                         <button
                                             key={i}
                                             type="button"
                                             onClick={() => setActivePhoto(i)}
-                                            className={`h-16 w-16 shrink-0 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${i === activePhoto ? "border-[#DAB25A] scale-105 shadow-[0_0_10px_rgba(218,178,90,0.3)]" : "border-transparent opacity-50 hover:opacity-100"
+                                            className={`h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-300 cursor-pointer ${i === activePhoto
+                                                    ? "border-[#DAB25A] scale-105 shadow-[0_0_10px_rgba(218,178,90,0.4)]"
+                                                    : "border-transparent opacity-40 hover:opacity-80"
                                                 }`}
                                         >
                                             <img src={img} alt="thumbnail" className="h-full w-full object-cover" />
@@ -387,25 +353,26 @@ export default function Profile() {
                             )}
                         </div>
 
+                        {/* Action Buttons for visitor profiles */}
                         {!isOwnProfile && (
-                            <div className="mt-6 flex items-center gap-3">
+                            <div className="mt-4 sm:mt-5 flex items-center gap-2.5">
                                 <button
                                     type="button"
                                     onClick={handlePass}
                                     disabled={passing || liking || liked || passed}
                                     title="Pass"
-                                    className="h-12 w-12 rounded-full border border-white/15 text-neutral-300 flex items-center justify-center hover:border-red-500/50 hover:bg-red-500/10 hover:text-red-400 transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                                    className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border border-white/15 text-neutral-300 flex items-center justify-center hover:border-red-500/50 hover:bg-red-500/10 hover:text-red-400 transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                                 >
-                                    <PiXBold className="text-xl" />
+                                    <PiXBold className="text-lg" />
                                 </button>
 
                                 <button
                                     type="button"
                                     onClick={handleLike}
                                     disabled={liking || liked || passed}
-                                    className="flex-1 h-12 rounded-full bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(218,178,90,0.35)] transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                                    className="flex-1 h-10 sm:h-11 rounded-full bg-gradient-to-r from-[#DAB25A] to-[#c49e48] hover:from-[#c49e48] hover:to-[#b38e3a] text-[#09090A] font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-[0_4px_18px_rgba(218,178,90,0.3)] transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                                 >
-                                    <PiHeartFill className="text-lg" />
+                                    <PiHeartFill className="text-base" />
                                     <span>{liked ? "Liked" : liking ? "Liking..." : "Connect Profile"}</span>
                                 </button>
 
@@ -414,23 +381,24 @@ export default function Profile() {
                                     onClick={handleRewind}
                                     disabled={rewinding || (!liked && !passed)}
                                     title="Rewind last action"
-                                    className="h-12 w-12 rounded-full border border-white/15 text-neutral-300 flex items-center justify-center hover:border-[#DAB25A]/50 hover:bg-[#DAB25A]/10 hover:text-[#DAB25A] transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
+                                    className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border border-white/15 text-neutral-300 flex items-center justify-center hover:border-[#DAB25A]/50 hover:bg-[#DAB25A]/10 hover:text-[#DAB25A] transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                                 >
-                                    <PiArrowCounterClockwiseBold className="text-xl" />
+                                    <PiArrowCounterClockwiseBold className="text-lg" />
                                 </button>
                             </div>
                         )}
                     </div>
 
-                    <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between">
+                    {/* Right Column (User Details) */}
+                    <div className="lg:col-span-7 p-5 sm:p-7 flex flex-col justify-between">
                         <div>
-                            <div className="flex items-center gap-2.5 mb-4">
-                                <div className="inline-flex items-center gap-1.5 rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[#DAB25A]">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                                <div className="inline-flex items-center gap-1 rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#DAB25A]">
                                     <PiSparkleFill className="text-xs" />
                                     <span>{isOwnProfile ? "YOUR PROFILE" : "USER PROFILE"}</span>
                                 </div>
                                 {hasActiveSubscription && (
-                                    <div className="inline-flex items-center gap-1.5 rounded-full border border-[#DAB25A] bg-[#DAB25A] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-black">
+                                    <div className="inline-flex items-center gap-1 rounded-full border border-[#DAB25A] bg-[#DAB25A] px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#09090A] shadow-[0_0_12px_rgba(218,178,90,0.3)]">
                                         <PiCrownFill className="text-xs" />
                                         <span>VIP MEMBER</span>
                                     </div>
@@ -443,32 +411,33 @@ export default function Profile() {
                             </h1>
 
                             {user.bio && (
-                                <p className="mt-3 text-neutral-300 text-sm leading-relaxed border-l-2 border-[#DAB25A]/40 pl-4 py-0.5 italic">
+                                <p className="mt-2 text-neutral-300 text-xs sm:text-sm leading-relaxed border-l-2 border-[#DAB25A]/40 pl-3 py-0.5 italic">
                                     "{user.bio}"
                                 </p>
                             )}
 
-                            <div className="mt-8 grid sm:grid-cols-2 gap-3.5">
+                            {/* Info Badges Grid */}
+                            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                                 {user.livingIn && (
-                                    <div className="p-3.5 rounded-2xl border border-white/10 bg-neutral-950/80 flex items-center gap-3">
-                                        <div className="h-9 w-9 rounded-xl bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
-                                            <PiMapPinFill size={18} />
+                                    <div className="p-2.5 sm:p-3 rounded-xl border border-white/10 bg-neutral-900/60 backdrop-blur-sm flex items-center gap-2.5">
+                                        <div className="h-8 w-8 rounded-lg bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
+                                            <PiMapPinFill size={15} />
                                         </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase font-bold text-neutral-400 tracking-wider">Location</p>
-                                            <p className="text-xs font-semibold text-white mt-0.5">{user.livingIn}</p>
+                                        <div className="min-w-0">
+                                            <p className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Location</p>
+                                            <p className="text-xs font-semibold text-white mt-0.5 truncate">{user.livingIn}</p>
                                         </div>
                                     </div>
                                 )}
 
                                 {user.jobTitle && (
-                                    <div className="p-3.5 rounded-2xl border border-white/10 bg-neutral-950/80 flex items-center gap-3">
-                                        <div className="h-9 w-9 rounded-xl bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
-                                            <PiBriefcaseFill size={18} />
+                                    <div className="p-2.5 sm:p-3 rounded-xl border border-white/10 bg-neutral-900/60 backdrop-blur-sm flex items-center gap-2.5">
+                                        <div className="h-8 w-8 rounded-lg bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
+                                            <PiBriefcaseFill size={15} />
                                         </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase font-bold text-neutral-400 tracking-wider">Occupation</p>
-                                            <p className="text-xs font-semibold text-white mt-0.5">
+                                        <div className="min-w-0">
+                                            <p className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Occupation</p>
+                                            <p className="text-xs font-semibold text-white mt-0.5 truncate">
                                                 {user.jobTitle} {user.company && `at ${user.company}`}
                                             </p>
                                         </div>
@@ -476,40 +445,41 @@ export default function Profile() {
                                 )}
 
                                 {user.school && (
-                                    <div className="p-3.5 rounded-2xl border border-white/10 bg-neutral-950/80 flex items-center gap-3">
-                                        <div className="h-9 w-9 rounded-xl bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
-                                            <PiGraduationCapFill size={18} />
+                                    <div className="p-2.5 sm:p-3 rounded-xl border border-white/10 bg-neutral-900/60 backdrop-blur-sm flex items-center gap-2.5">
+                                        <div className="h-8 w-8 rounded-lg bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
+                                            <PiGraduationCapFill size={15} />
                                         </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase font-bold text-neutral-400 tracking-wider">Education</p>
-                                            <p className="text-xs font-semibold text-white mt-0.5">{user.school}</p>
+                                        <div className="min-w-0">
+                                            <p className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Education</p>
+                                            <p className="text-xs font-semibold text-white mt-0.5 truncate">{user.school}</p>
                                         </div>
                                     </div>
                                 )}
 
                                 {user.height >= 100 && user.height <= 250 && (
-                                    <div className="p-3.5 rounded-2xl border border-white/10 bg-neutral-950/80 flex items-center gap-3">
-                                        <div className="h-9 w-9 rounded-xl bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
-                                            <PiRulerFill size={18} />
+                                    <div className="p-2.5 sm:p-3 rounded-xl border border-white/10 bg-neutral-900/60 backdrop-blur-sm flex items-center gap-2.5">
+                                        <div className="h-8 w-8 rounded-lg bg-[#DAB25A]/10 border border-[#DAB25A]/30 flex items-center justify-center text-[#DAB25A] shrink-0">
+                                            <PiRulerFill size={15} />
                                         </div>
-                                        <div>
-                                            <p className="text-[10px] uppercase font-bold text-neutral-400 tracking-wider">Height</p>
-                                            <p className="text-xs font-semibold text-white mt-0.5">{user.height} cm</p>
+                                        <div className="min-w-0">
+                                            <p className="text-[9px] uppercase font-bold text-neutral-400 tracking-wider">Height</p>
+                                            <p className="text-xs font-semibold text-white mt-0.5 truncate">{user.height} cm</p>
                                         </div>
                                     </div>
                                 )}
                             </div>
 
+                            {/* Interests Tags */}
                             {cleanInterests(user.interests).length > 0 && (
-                                <div className="mt-6">
-                                    <p className="text-[11px] font-bold uppercase tracking-widest text-[#DAB25A] mb-2.5">
+                                <div className="mt-3.5 sm:mt-4">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#DAB25A] mb-1.5">
                                         Interests & Passions
                                     </p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-1.5">
                                         {cleanInterests(user.interests).map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#DAB25A]"
+                                                className="rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#DAB25A]"
                                             >
                                                 {tag}
                                             </span>
@@ -518,16 +488,17 @@ export default function Profile() {
                                 </div>
                             )}
 
+                            {/* Lifestyle Tags */}
                             {user.lifestyle?.length > 0 && (
-                                <div className="mt-5">
-                                    <p className="text-[11px] font-bold uppercase tracking-widest text-neutral-400 mb-2.5">
+                                <div className="mt-3">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1.5">
                                         Lifestyle Attributes
                                     </p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-1.5">
                                         {user.lifestyle.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-medium uppercase tracking-wider text-neutral-300"
+                                                className="rounded-full border border-white/10 bg-white/5 px-3 py-0.5 text-[11px] font-medium uppercase tracking-wider text-neutral-300"
                                             >
                                                 {tag}
                                             </span>
@@ -536,18 +507,20 @@ export default function Profile() {
                                 </div>
                             )}
 
+                            {/* Languages */}
                             {user.languages?.length > 0 && (
-                                <div className="mt-5 flex items-center gap-2 text-xs text-neutral-400">
-                                    <PiTranslateBold className="text-[#DAB25A] text-base shrink-0" />
+                                <div className="mt-3 flex items-center gap-2 text-xs text-neutral-400">
+                                    <PiTranslateBold className="text-[#DAB25A] text-sm shrink-0" />
                                     <span>Speaks: <strong className="text-white font-semibold">{user.languages.join(", ")}</strong></span>
                                 </div>
                             )}
 
+                            {/* Match Preferences (Own Profile) */}
                             {isOwnProfile && (user.agePreference || user.distancePreference) && (
-                                <div className="mt-6 p-4 rounded-2xl border border-white/10 bg-neutral-950/80 flex items-start gap-3">
-                                    <PiSlidersHorizontalBold className="text-[#DAB25A] text-lg mt-0.5 shrink-0" />
-                                    <div className="text-xs text-neutral-300 space-y-1">
-                                        <p className="font-bold text-white uppercase tracking-wider text-[10px]">Match Preferences</p>
+                                <div className="mt-3.5 p-3 rounded-xl border border-white/10 bg-neutral-900/60 flex items-start gap-2.5">
+                                    <PiSlidersHorizontalBold className="text-[#DAB25A] text-sm mt-0.5 shrink-0" />
+                                    <div className="text-xs text-neutral-300 space-y-0.5">
+                                        <p className="font-bold text-white uppercase tracking-wider text-[9px]">Match Preferences</p>
                                         {user.agePreference && (
                                             <p><span className="text-neutral-400">Age Range:</span> {user.agePreference.min} – {user.agePreference.max} years</p>
                                         )}
@@ -564,7 +537,7 @@ export default function Profile() {
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: "auto" }}
                                         exit={{ opacity: 0, height: 0 }}
-                                        className="mt-4 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-center text-xs font-medium text-red-400"
+                                        className="mt-3 rounded-xl border border-red-500/40 bg-red-500/10 px-3.5 py-2 text-center text-xs font-medium text-red-400"
                                     >
                                         {errorMsg}
                                     </motion.p>
@@ -572,26 +545,27 @@ export default function Profile() {
                             </AnimatePresence>
                         </div>
 
+                        {/* Own Profile Delete Option */}
                         {isOwnProfile && (
-                            <div className="mt-8 pt-6 border-t border-white/10">
+                            <div className="mt-4 pt-3 sm:pt-4 border-t border-white/10">
                                 {!showConfirm ? (
                                     <button
                                         type="button"
                                         onClick={() => setShowConfirm(true)}
-                                        className="py-3 px-6 rounded-full border border-red-500/40 text-red-400 hover:bg-red-500/10 font-bold uppercase tracking-wider text-xs flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
+                                        className="py-2 px-4 rounded-full border border-red-500/40 text-red-400 hover:bg-red-500/10 font-bold uppercase tracking-wider text-[11px] flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer"
                                     >
-                                        <PiTrashBold className="text-sm" /> Delete Account
+                                        <PiTrashBold className="text-xs" /> Delete Account
                                     </button>
                                 ) : (
-                                    <div className="p-4 rounded-2xl border border-red-500/30 bg-red-500/5 space-y-3">
+                                    <div className="p-3 rounded-xl border border-red-500/30 bg-red-500/5 space-y-2">
                                         <p className="text-xs text-neutral-300">
                                             This action cannot be undone. Are you sure you want to permanently delete your account?
                                         </p>
-                                        <div className="flex gap-3">
+                                        <div className="flex gap-2">
                                             <button
                                                 type="button"
                                                 onClick={() => setShowConfirm(false)}
-                                                className="py-2.5 px-5 rounded-full border border-white/20 text-white font-bold uppercase tracking-wider text-[11px] hover:bg-white/10 transition-all cursor-pointer"
+                                                className="py-1.5 px-3.5 rounded-full border border-white/20 text-white text-[11px] font-bold uppercase tracking-wider hover:bg-white/10 transition-all active:scale-95 cursor-pointer"
                                             >
                                                 Cancel
                                             </button>
@@ -599,7 +573,7 @@ export default function Profile() {
                                                 type="button"
                                                 onClick={handleDeleteAccount}
                                                 disabled={deleting}
-                                                className="py-2.5 px-5 rounded-full bg-red-500 hover:bg-red-600 text-white font-bold uppercase tracking-wider text-[11px] transition-all cursor-pointer disabled:opacity-50"
+                                                className="py-1.5 px-3.5 rounded-full bg-red-500 hover:bg-red-600 text-white text-[11px] font-bold uppercase tracking-wider transition-all active:scale-95 disabled:opacity-50 cursor-pointer shadow-[0_0_15px_rgba(239,68,68,0.4)]"
                                             >
                                                 {deleting ? "Deleting..." : "Confirm Delete"}
                                             </button>
