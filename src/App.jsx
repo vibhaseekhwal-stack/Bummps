@@ -9,10 +9,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
-import {
-  connectSocket,
-  disconnectSocket,
-} from "./services/socket/socket";
 
 function App() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -54,13 +50,7 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      connectSocket();
-    } else {
-      disconnectSocket();
-    }
-  }, [isLoggedIn]);
+ 
 
   const scrollToTop = () => {
     window.scrollTo({

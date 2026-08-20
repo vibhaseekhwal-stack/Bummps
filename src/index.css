@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 @import "tailwindcss";
 
 @theme {
@@ -10,13 +11,25 @@ html,
 body,
 #root {
   width: 100%;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #121214;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Scrollbar hide rahegi, but scrolling completely working rahegi */
 html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-#root::-webkit-scrollbar {
+body::-webkit-scrollbar {
+  width: 0;
   display: none;
+}
+
+html,
+body {
+  scrollbar-width: none;
 }
