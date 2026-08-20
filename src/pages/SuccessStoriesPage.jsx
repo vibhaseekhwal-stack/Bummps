@@ -7,18 +7,20 @@ import {
     PiMagnifyingGlassBold,
     PiPlusBold,
     PiLockKeyFill,
-    PiCalendarBlankFill
+    PiCalendarBlankFill,
+    PiHeartFill,
+    PiQuotesFill
 } from "react-icons/pi";
 
-// Status Specific Stories Data
+// Status Specific Stories Data with Circular Profile Images
 const initialStories = [
     {
         id: 1,
         names: "Aarav & Meera",
         status: "Married",
         location: "Mumbai, India",
+        avatar: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Oct 2023",
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800",
         quote: "From late-night chats to walking down the aisle.",
         shortStory: "We matched after both of us almost gave up on dating apps. The instant connection was undeniable.",
         fullStory: "After endless awkward dates, we both decided to give it one last try. Our first chat lasted 4 hours straight. Three weeks later, we met for dinner in Bandra, and it felt like we'd known each other for years.",
@@ -29,8 +31,8 @@ const initialStories = [
         names: "Rohan & Sneha",
         status: "Engaged",
         location: "Bangalore, India",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Feb 2024",
-        image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800",
         quote: "One swipe changed our world forever.",
         shortStory: "Filter coffee over our first date turned into a lifetime commitment.",
         fullStory: "We bonded over our shared obsession with filter coffee and tech startups. What started as a quick 30-minute coffee catchup in Indiranagar extended into a 6-hour walk around Cubbon Park.",
@@ -41,8 +43,8 @@ const initialStories = [
         names: "Kabir & Ananya",
         status: "Married",
         location: "Delhi NCR, India",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Jan 2023",
-        image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800",
         quote: "Distance couldn't stop what was meant to be.",
         shortStory: "Managing long distance was tough, but our shared goals kept us connected every step of the way.",
         fullStory: "Kabir was in Delhi and Ananya was finishing her master's degree in Bangalore. We survived 18 months of long-distance dating before moving into our first home together.",
@@ -53,8 +55,8 @@ const initialStories = [
         names: "Vikram & Pooja",
         status: "Dating",
         location: "Hyderabad, India",
+        avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Aug 2024",
-        image: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&fit=crop&q=80&w=800",
         quote: "Two foodies who found home in each other.",
         shortStory: "Exploring street food stalls together bonded us faster than any fancy restaurant ever could.",
         fullStory: "We bonded immediately over our love for authentic Hyderabadi Biryani. Within three months, we were traveling across South India together.",
@@ -65,8 +67,8 @@ const initialStories = [
         names: "Siddharth & Riya",
         status: "Married",
         location: "Pune, India",
+        avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Nov 2022",
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
         quote: "A quiet coffee turned into forever.",
         shortStory: "We were both introverts who usually hated first dates, but hours flew by like minutes.",
         fullStory: "Our first date was at a quiet bookstore cafe. We started talking about our favorite novels and ended up sitting there until closing time.",
@@ -77,8 +79,8 @@ const initialStories = [
         names: "Aditya & Priya",
         status: "Engaged",
         location: "Kolkata, India",
+        avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Mar 2024",
-        image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=800",
         quote: "Music brought our souls together.",
         shortStory: "We randomly matched before a music festival, and we haven't missed a concert since.",
         fullStory: "We met right before a weekend music festival in Kolkata. From singing along in the rain to planning our future together, our shared love for indie music turned into something special.",
@@ -89,8 +91,8 @@ const initialStories = [
         names: "Karan & Ishita",
         status: "Dating",
         location: "Jaipur, India",
+        avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80",
         dateMet: "Matched in Dec 2024",
-        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800",
         quote: "Sunset walks and endless laughter.",
         shortStory: "Met at a local art exhibit, now spending every weekend exploring hidden forts.",
         fullStory: "We both swiped right because of a mutual love for heritage architecture. Our first meeting at Nahargarh Fort led to an unbreakable bond.",
@@ -110,9 +112,9 @@ export default function JourneysToForever() {
         names: "",
         status: "Dating",
         location: "",
+        avatar: "",
         quote: "",
-        shortStory: "",
-        image: ""
+        shortStory: ""
     });
 
     // Filter Logic by Status Tab & Search Bar
@@ -134,8 +136,8 @@ export default function JourneysToForever() {
             names: formData.names,
             status: formData.status,
             location: formData.location,
+            avatar: formData.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
             dateMet: "Matched Recently",
-            image: formData.image || "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&q=80&w=800",
             quote: formData.quote || "A new journey begins here.",
             shortStory: formData.shortStory || "We met and instantly clicked!",
             fullStory: formData.shortStory || "Full story coming soon as our journey unfolds.",
@@ -144,11 +146,10 @@ export default function JourneysToForever() {
 
         setStories([newEntry, ...stories]);
         setIsSubmitModalOpen(false);
-        setFormData({ names: "", status: "Dating", location: "", quote: "", shortStory: "", image: "" });
+        setFormData({ names: "", status: "Dating", location: "", avatar: "", quote: "", shortStory: "" });
     };
 
     return (
-        /* Top padding increased (pt-28 sm:pt-36 lg:pt-40) to create a clean gap below Navbar */
         <section className="pt-28 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 bg-[#121214] text-white overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] relative">
 
             {/* Glow Effects */}
@@ -197,10 +198,11 @@ export default function JourneysToForever() {
                             <button
                                 key={tab}
                                 onClick={() => setActiveFilter(tab)}
-                                className={`px-4 py-2 rounded-2xl text-xs font-semibold transition-all cursor-pointer ${activeFilter === tab
-                                    ? "bg-[#DAB25A] text-black shadow-[0_0_15px_rgba(218,178,90,0.3)]"
-                                    : "bg-neutral-950/60 border border-white/10 text-neutral-400 hover:text-white hover:border-[#DAB25A]/40"
-                                    }`}
+                                className={`px-4 py-2 rounded-2xl text-xs font-semibold transition-all cursor-pointer ${
+                                    activeFilter === tab
+                                        ? "bg-[#DAB25A] text-black shadow-[0_0_15px_rgba(218,178,90,0.3)]"
+                                        : "bg-neutral-950/60 border border-white/10 text-neutral-400 hover:text-white hover:border-[#DAB25A]/40"
+                                }`}
                             >
                                 {tab}
                             </button>
@@ -235,52 +237,65 @@ export default function JourneysToForever() {
                                 {/* Background Glow */}
                                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DAB25A]/30 to-[#F3E5AB]/10 rounded-3xl blur-md opacity-0 group-hover:opacity-100 transition duration-500" />
 
-                                {/* Card Container */}
-                                <div className="relative w-full rounded-3xl border border-[#DAB25A]/20 bg-neutral-900/50 overflow-hidden backdrop-blur-xl flex flex-col justify-between transition-all duration-300 group-hover:bg-neutral-900/80 group-hover:border-[#DAB25A]/50 group-hover:-translate-y-1 shadow-xl">
-
+                                {/* Premium Card Container */}
+                                <div className="relative w-full rounded-3xl border border-[#DAB25A]/25 bg-gradient-to-b from-neutral-900/90 to-neutral-950/90 p-6 sm:p-7 backdrop-blur-xl flex flex-col justify-between transition-all duration-300 group-hover:border-[#DAB25A]/60 group-hover:-translate-y-1 shadow-xl">
+                                    
                                     <div>
-                                        {/* Fixed Aspect Image Box */}
-                                        <div className="relative w-full aspect-[4/3] sm:h-56 overflow-hidden bg-neutral-950">
-                                            <img
-                                                src={story.image}
-                                                alt={story.names}
-                                                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent" />
+                                        {/* Top Header Bar with Circle Image Avatar & Status Badge */}
+                                        <div className="flex items-start justify-between gap-3 mb-5">
+                                            
+                                            {/* Profile Circle Avatar Image */}
+                                            <div className="flex items-center gap-3">
+                                                <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-[#DAB25A] via-[#F3E5AB] to-[#c79836] shadow-md shrink-0">
+                                                    <img
+                                                        src={story.avatar}
+                                                        alt={story.names}
+                                                        className="w-full h-full rounded-full object-cover"
+                                                    />
+                                                </div>
+
+                                                <div>
+                                                    <h3 className="font-['Playfair_Display',serif] font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors leading-tight">
+                                                        {story.names}
+                                                    </h3>
+                                                    <p className="text-[11px] text-neutral-400 flex items-center gap-1 mt-0.5">
+                                                        <PiMapPinFill className="text-[#DAB25A]" /> {story.location}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Status Badge */}
+                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#DAB25A]/10 text-[#DAB25A] border border-[#DAB25A]/30 shrink-0">
+                                                <PiHeartFill className="text-[10px]" /> {story.status}
+                                            </span>
+
                                         </div>
 
-                                        {/* Content Body */}
-                                        <div className="p-5 sm:p-6">
-                                            <h3 className="font-['Playfair_Display',serif] font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors">
-                                                {story.names}
-                                            </h3>
-                                            <p className="text-xs text-neutral-400 flex items-center gap-1 mt-1 mb-3">
-                                                <PiMapPinFill className="text-[#DAB25A]" /> {story.location}
-                                            </p>
-
-                                            <blockquote className="italic text-[#DAB25A] text-xs font-medium mb-3 border-l-2 border-[#DAB25A] pl-3 py-0.5">
+                                        {/* Quote Box */}
+                                        <div className="bg-neutral-900/90 rounded-2xl p-3.5 border border-white/5 mb-4 group-hover:border-[#DAB25A]/20 transition-all relative">
+                                            <PiQuotesFill className="absolute top-2 right-3 text-lg text-[#DAB25A]/20" />
+                                            <blockquote className="italic text-[#F3E5AB] text-xs font-medium leading-relaxed pr-4">
                                                 "{story.quote}"
                                             </blockquote>
-
-                                            <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed line-clamp-3 font-light">
-                                                {story.shortStory}
-                                            </p>
                                         </div>
+
+                                        {/* Short Story */}
+                                        <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed line-clamp-3 font-light mb-6">
+                                            {story.shortStory}
+                                        </p>
                                     </div>
 
-                                    {/* Card Bottom Bar */}
-                                    <div className="p-5 sm:p-6 pt-0">
-                                        <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                                            <span className="text-[11px] text-neutral-400 flex items-center gap-1">
-                                                <PiCalendarBlankFill className="text-[#DAB25A]" /> {story.dateMet}
-                                            </span>
-                                            <button
-                                                onClick={() => setSelectedStory(story)}
-                                                className="inline-flex items-center gap-1 text-xs font-bold text-[#DAB25A] uppercase tracking-wider hover:text-white transition-colors cursor-pointer group-hover:translate-x-1 duration-300"
-                                            >
-                                                Full Story <PiArrowRightBold />
-                                            </button>
-                                        </div>
+                                    {/* Card Footer */}
+                                    <div className="pt-4 border-t border-white/10 flex items-center justify-between mt-auto">
+                                        <span className="text-[11px] text-neutral-400 flex items-center gap-1 font-medium">
+                                            <PiCalendarBlankFill className="text-[#DAB25A]" /> {story.dateMet}
+                                        </span>
+                                        <button
+                                            onClick={() => setSelectedStory(story)}
+                                            className="inline-flex items-center gap-1 text-xs font-bold text-[#DAB25A] uppercase tracking-wider hover:text-white transition-colors cursor-pointer group-hover:translate-x-1 duration-300"
+                                        >
+                                            Full Story <PiArrowRightBold />
+                                        </button>
                                     </div>
 
                                 </div>
@@ -303,16 +318,24 @@ export default function JourneysToForever() {
                         </button>
 
                         <div className="flex items-center gap-4 mb-6">
-                            <img src={selectedStory.image} alt={selectedStory.names} className="w-16 h-16 rounded-full object-cover border-2 border-[#DAB25A]" />
+                            <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-[#DAB25A] via-[#F3E5AB] to-[#c79836] shrink-0">
+                                <img
+                                    src={selectedStory.avatar}
+                                    alt={selectedStory.names}
+                                    className="w-full h-full rounded-full object-cover"
+                                />
+                            </div>
                             <div>
+                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#DAB25A]/10 text-[#DAB25A] border border-[#DAB25A]/30 mb-1">
+                                    <PiHeartFill className="text-[10px]" /> {selectedStory.status}
+                                </span>
                                 <h3 className="font-['Playfair_Display',serif] font-bold text-2xl text-white">{selectedStory.names}</h3>
-                                <p className="text-xs text-[#DAB25A] font-medium">{selectedStory.location} • {selectedStory.status}</p>
-                                <p className="text-[11px] text-neutral-500 mt-0.5">{selectedStory.timeline}</p>
+                                <p className="text-xs text-[#DAB25A] font-medium mt-0.5">{selectedStory.location} • {selectedStory.timeline}</p>
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <blockquote className="italic text-[#DAB25A] text-xs font-medium border-l-2 border-[#DAB25A] pl-4 py-1 bg-[#DAB25A]/5 rounded-r-lg">
+                            <blockquote className="italic text-[#DAB25A] text-xs sm:text-sm font-medium border-l-2 border-[#DAB25A] pl-4 py-2 bg-[#DAB25A]/5 rounded-r-xl">
                                 "{selectedStory.quote}"
                             </blockquote>
 
@@ -383,6 +406,17 @@ export default function JourneysToForever() {
                                         className="w-full bg-neutral-950 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-[#DAB25A]"
                                     />
                                 </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-neutral-300 mb-1">Image URL (Optional)</label>
+                                <input
+                                    type="url"
+                                    placeholder="https://..."
+                                    value={formData.avatar}
+                                    onChange={(e) => setFormData({ ...formData, avatar: e.target.value })}
+                                    className="w-full bg-neutral-950 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-[#DAB25A]"
+                                />
                             </div>
 
                             <div>
