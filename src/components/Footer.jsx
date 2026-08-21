@@ -51,7 +51,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#121214] text-white">
+    <footer className="relative overflow-hidden bg-[#121214] text-white font-sans">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#DAB25A]/40 to-transparent" />
 
@@ -109,7 +109,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-['Playfair_Display',serif] text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
               Explore
             </h4>
 
@@ -129,7 +129,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-['Playfair_Display',serif] text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
               Company
             </h4>
 
@@ -173,7 +173,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-['Playfair_Display',serif] text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
               Trust & Safety
             </h4>
 

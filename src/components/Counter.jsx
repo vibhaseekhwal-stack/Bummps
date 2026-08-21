@@ -5,7 +5,7 @@ export default function Counter({
   value,
   suffix = "",
   duration = 2,
-  className = "text-[#DAB25A] font-bold",
+  className = "text-[#DAB25A] font-bold font-sans",
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });

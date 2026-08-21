@@ -14,17 +14,17 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-16 sm:py-20 bg-[#121214] text-white overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] border-none outline-none"
+      className="py-16 sm:py-20 bg-[#121214] text-white overflow-hidden font-sans border-none outline-none"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto font-sans">
           <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full backdrop-blur-md">
             <PiSparkleFill className="text-xs" /> Success Stories
           </span>
 
-          <h2 className="mt-5 font-['Playfair_Display',serif] font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="mt-5 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
             Real people,{" "}
             <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               real love stories
@@ -37,7 +37,7 @@ export default function Testimonials() {
         </div>
 
         {/* Clean Auto Carousel Showcase */}
-        <div className="bummps-testimonials w-full mt-12 sm:mt-16 relative">
+        <div className="bummps-testimonials w-full mt-12 sm:mt-16 relative font-sans">
 
           <Swiper
             modules={[Autoplay]}
@@ -102,7 +102,7 @@ export default function Testimonials() {
                         className="h-12 w-12 rounded-2xl object-cover border-2 border-[#DAB25A]/50 shadow-md shrink-0"
                       />
                       <div className="text-left">
-                        <h3 className="font-['Playfair_Display',serif] font-bold text-white text-base leading-snug">
+                        <h3 className="font-serif font-bold text-white text-base leading-snug">
                           {t.name}
                         </h3>
                         <p className="text-xs text-neutral-400 mt-0.5 font-normal">

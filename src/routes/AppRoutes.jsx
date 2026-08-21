@@ -24,9 +24,6 @@ export default function AppRoutes({ isLoggedIn }) {
 
             <Route path="/contact" element={<ContactPage />} /> 
 
-           
-
-
             <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );

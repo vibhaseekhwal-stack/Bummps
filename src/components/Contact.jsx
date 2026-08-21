@@ -30,12 +30,12 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative pt-4 sm:pt-5 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] select-none"
+      className="relative pt-4 sm:pt-5 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-sans select-none"
     >
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
 
         {/* HEADER WITH MATCHING PRICING SECTION HEADING SIZES */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
@@ -44,7 +44,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-['Playfair_Display',serif] font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
+            className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
           >
             Let's start a conversation with{" "}
             <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
@@ -64,7 +64,7 @@ export default function Contact() {
         </div>
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
 
           {/* LEFT SIDE: Info Deck */}
           <motion.div

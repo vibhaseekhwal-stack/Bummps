@@ -1,20 +1,14 @@
-import logoImg from "../assets/logo.png";
+import logoImg from "../assets/img.png";
 
-export default function BummpsLogo({ className = "h-9" }) {
+export default function BummpsLogo({ className = "h-8" }) {
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+    <div className={`flex items-center select-none ${className}`}>
+      {/* Full Logo Image (Icon + Text Combined) */}
       <img
         src={logoImg}
         alt="Bummps Logo"
-        className="h-full w-auto object-contain drop-shadow-[0_0_15px_rgba(218,178,90,0.5)]"
+        className="h-full w-auto object-contain shrink-0"
       />
-
-      <span
-        style={{ fontFamily: '"Poppins", "Montserrat", sans-serif' }}
-        className="text-2xl font-bold tracking-tight text-[#DAB25A]"
-      >
-        bummps<span className="text-[#DAB25A]">.</span>
-      </span>
     </div>
   );
 }

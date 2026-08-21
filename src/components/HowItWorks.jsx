@@ -19,7 +19,7 @@ const icons = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative overflow-hidden bg-[#121214] pt-2 pb-14 sm:pt-4 sm:pb-20 lg:pt-6 lg:pb-24 text-white font-['Plus_Jakarta_Sans',sans-serif]">
+    <section className="relative overflow-hidden bg-[#121214] pt-2 pb-14 sm:pt-4 sm:pb-20 lg:pt-6 lg:pb-24 text-white font-sans">
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -28,7 +28,7 @@ export default function HowItWorks() {
           <span className="inline-flex items-center gap-2 rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase backdrop-blur-md">
             <PiSparkleFill /> The Bummps Journey
           </span>
-          <h2 className="mt-4 font-['Playfair_Display',serif] text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="mt-4 font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
             Seamlessly{" "}
             <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               interwoven.
@@ -43,7 +43,7 @@ export default function HowItWorks() {
         <div className="relative mt-6 sm:mt-10">
 
           {/* Animated Connecting Ribbon Path (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none z-0">
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none z-0" aria-hidden="true">
             <svg
               className="w-full h-32 overflow-visible"
               viewBox="0 0 1000 100"
@@ -73,8 +73,9 @@ export default function HowItWorks() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.12 }}
-                  className={`flex flex-col items-center ${isFloatingUp ? "lg:-translate-y-10" : "lg:translate-y-10"
-                    }`}
+                  className={`flex flex-col items-center ${
+                    isFloatingUp ? "lg:-translate-y-10" : "lg:translate-y-10"
+                  }`}
                 >
                   {/* Glass Capsule Card */}
                   <div className="group relative w-full rounded-[2.5rem] border border-[#DAB25A]/20 bg-neutral-900/50 p-6 sm:p-7 backdrop-blur-2xl transition-all duration-500 hover:border-[#DAB25A]/70 hover:shadow-[0_15px_40px_rgba(218,178,90,0.2)] hover:-translate-y-2">
@@ -90,7 +91,7 @@ export default function HowItWorks() {
                     </div>
 
                     {/* Step Title & Desc */}
-                    <h3 className="font-['Playfair_Display',serif] text-lg sm:text-xl font-bold text-white group-hover:text-[#DAB25A] transition-colors">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#DAB25A] transition-colors">
                       {s.title}
                     </h3>
                     <p className="mt-2.5 text-xs text-neutral-300 leading-relaxed font-light">

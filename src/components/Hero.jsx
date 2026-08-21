@@ -18,14 +18,14 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#121214] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 font-['Plus_Jakarta_Sans',sans-serif]"
+      className="relative overflow-hidden bg-[#121214] text-white pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 font-sans"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-[#DAB25A]/15 blur-[120px] animate-pulse" />
         <div className="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-[#DAB25A]/10 blur-[140px] animate-pulse [animation-delay:2s]" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 hidden sm:block">
+      <div className="pointer-events-none absolute inset-0 hidden sm:block" aria-hidden="true">
         {hearts.map((h, i) => (
           <motion.span
             key={i}
@@ -57,12 +57,12 @@ export default function Hero() {
               <span>Rated the #1 premium dating app of 2026</span>
             </motion.div>
 
-            {/* MAIN HERO HEADING WITH MATCHING THEME STYLING */}
+            {/* MAIN HERO HEADING */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-['Playfair_Display',serif] font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-white tracking-tight"
+              className="mt-5 font-serif font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-white tracking-tight"
             >
               Find someone{" "}
               <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
@@ -112,7 +112,7 @@ export default function Hero() {
                   key={s.label}
                   className="rounded-2xl border border-[#DAB25A]/20 bg-neutral-800/50 px-3 py-4 text-center backdrop-blur-xl shadow-lg hover:border-[#DAB25A]/40 transition-colors"
                 >
-                  <p className="font-['Playfair_Display',serif] text-xl sm:text-2xl font-semibold text-[#DAB25A]">
+                  <p className="font-serif text-xl sm:text-2xl font-semibold text-[#DAB25A]">
                     {s.value}
                   </p>
                   <p className="text-[11px] sm:text-xs text-neutral-400 mt-1 uppercase tracking-wider font-medium">

@@ -22,7 +22,7 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="pt-2 pb-2 sm:pt-4 sm:pb-4 lg:pt-6 lg:pb-6 bg-[#121214] text-white overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
+      className="pt-2 pb-2 sm:pt-4 sm:pb-4 lg:pt-6 lg:pb-6 bg-[#121214] text-white overflow-hidden font-sans"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -32,7 +32,7 @@ export default function Features() {
             Why Bummps
           </span>
 
-          <h2 className="mt-4 font-['Playfair_Display',serif] font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="mt-4 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
             Built for{" "}
             <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               better connections
@@ -59,7 +59,10 @@ export default function Features() {
                 className="group relative h-full"
               >
                 {/* Background Glow */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DAB25A]/30 to-[#F3E5AB]/10 rounded-3xl blur-md opacity-0 group-hover:opacity-100 transition duration-500" />
+                <div 
+                  className="absolute -inset-0.5 bg-gradient-to-r from-[#DAB25A]/30 to-[#F3E5AB]/10 rounded-3xl blur-md opacity-0 group-hover:opacity-100 transition duration-500" 
+                  aria-hidden="true" 
+                />
 
                 {/* Card Container */}
                 <div className="relative h-full rounded-3xl border border-[#DAB25A]/20 bg-neutral-900/50 p-6 sm:p-8 backdrop-blur-xl flex flex-col justify-between transition-all duration-300 group-hover:bg-neutral-900/80 group-hover:border-[#DAB25A]/50 group-hover:-translate-y-1.5 shadow-xl">
@@ -71,13 +74,13 @@ export default function Features() {
                         <Icon />
                       </div>
 
-                      <span className="font-['Playfair_Display',serif] text-xl sm:text-2xl font-bold text-neutral-600 group-hover:text-[#DAB25A]/60 transition-colors">
+                      <span className="font-serif text-xl sm:text-2xl font-bold text-neutral-600 group-hover:text-[#DAB25A]/60 transition-colors">
                         0{i + 1}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="mt-5 sm:mt-6 font-['Playfair_Display',serif] font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors">
+                    <h3 className="mt-5 sm:mt-6 font-serif font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors">
                       {f.title}
                     </h3>
 

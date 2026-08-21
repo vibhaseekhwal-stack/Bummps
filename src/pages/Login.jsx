@@ -7,30 +7,21 @@ import {
     PiLockSimpleBold,
     PiEyeBold,
     PiEyeSlashBold,
-    PiWarningCircleBold,
     PiShieldCheckBold,
-    PiCheckCircleFill,
 } from "react-icons/pi";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../services/Apis/auth";
-import logoImg from "../assets/logo.png";
+import logoImg from "../assets/img.png";
 
-// Exact fonts matching Contact Page & Hero
-const displayFont = { fontFamily: '"Playfair_Display", "Playfair Display", serif' };
-const bodyFont = { fontFamily: '"Plus_Jakarta_Sans", sans-serif' };
-
-function BummpsLogo({ className = "h-9" }) {
+// Updated Logo Component (Using single image logo)
+export function BummpsLogo({ className = "h-8" }) {
     return (
-        <div className={`flex items-center gap-2.5 select-none ${className}`}>
+        <div className={`flex items-center select-none ${className}`}>
             <img
                 src={logoImg}
                 alt="Bummps Logo"
-                className="h-full w-auto object-contain drop-shadow-[0_0_10px_rgba(218,178,90,0.3)]"
+                className="h-full w-auto object-contain shrink-0"
             />
-            <span style={displayFont} className="text-2xl font-bold tracking-tight text-white">
-                bummps<span className="text-[#DAB25A]">.</span>
-            </span>
         </div>
     );
 }
@@ -40,46 +31,40 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [form, setForm] = useState({ email: "", password: "" });
     const [loading, setLoading] = useState(false);
-    const [errorMsg, setErrorMsg] = useState("");
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setErrorMsg("");
         setLoading(true);
 
-        try {
-            const res = await login(form);
-
-            if (res.data?.token) {
-                localStorage.setItem("token", res.data.token);
-            }
-
-            if (res.data?.user) {
-                localStorage.setItem("user", JSON.stringify(res.data.user));
-            }
+        // Dummy/Fake Login setup without API call
+        setTimeout(() => {
+            // Save dummy data to localStorage
+            localStorage.setItem("token", "dummy-jwt-token-12345");
+            localStorage.setItem(
+                "user",
+                JSON.stringify({
+                    email: form.email,
+                    name: "Demo User",
+                })
+            );
 
             setLoading(false);
-navigate("/feed");
-        } catch (err) {
-            setErrorMsg(err.response?.data?.message || "Invalid email or password.");
-            setLoading(false);
-        }
+            
+            // Redirect to Home Page
+            navigate("/");
+        }, 500); // Smooth loading UI delay
     };
 
-    // Contact page exact match input styling
     const inputStyle =
         "w-full rounded-2xl border border-white/10 bg-neutral-950/60 py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-neutral-500 focus:border-[#DAB25A] focus:outline-none focus:ring-1 focus:ring-[#DAB25A] transition-all duration-300 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none [&:-webkit-autofill]:[transition:background-color_9999s_ease-in-out_0s] [&:-webkit-autofill]:[-webkit-text-fill-color:white]";
 
     return (
-        <section
-            style={bodyFont}
-            className="relative min-h-screen w-full bg-[#121214] text-white flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-hidden select-none py-16 sm:py-24"
-        >
-            {/* Background Radial Glow Spotlight - Same as Contact Page */}
+        <section className="font-sans relative min-h-screen w-full bg-[#121214] text-white flex items-center justify-center p-4 sm:p-6 lg:p-8 overflow-hidden select-none py-16 sm:py-24">
+            {/* Background Radial Glow Spotlight */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-100 bg-linear-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
             {/* Main Split Glass Container */}
@@ -89,7 +74,7 @@ navigate("/feed");
                 transition={{ duration: 0.5 }}
                 className="relative z-10 w-full max-w-5xl overflow-hidden rounded-4xl bg-linear-to-b from-neutral-900/90 to-neutral-950/90 border border-[#DAB25A]/20 backdrop-blur-2xl shadow-2xl grid grid-cols-1 lg:grid-cols-12"
             >
-                {/* Left Side: Branding Hero Showcase (Desktop) */}
+                {/* Left Side: Branding Hero Showcase */}
                 <div className="hidden lg:flex lg:col-span-5 relative flex-col justify-between p-10 bg-neutral-900/30 border-r border-white/10 backdrop-blur-2xl">
                     <div className="absolute inset-0 bg-[#DAB25A]/5 blur-2xl pointer-events-none" />
 
@@ -102,9 +87,9 @@ navigate("/feed");
                             <PiSparkleFill className="text-xs text-[#DAB25A]" /> Real Connections
                         </span>
 
-                        <h2 style={displayFont} className="text-3xl font-bold leading-tight text-white">
+                        <h2 className="font-sans text-3xl font-bold leading-tight text-white">
                             Find your{" "}
-                            <span className="italic font-normal text-#DAB25A bg-linear-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+                            <span className="italic font-normal bg-linear-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
                                 perfect
                             </span>{" "}
                             match today.
@@ -137,26 +122,15 @@ navigate("/feed");
                     </div>
 
                     <div className="max-w-md mx-auto w-full">
-                        <h1 style={displayFont} className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        <h1 className="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight">
                             Welcome{" "}
-                            <span className="italic font-normal text-#DAB25A bg-linear-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+                            <span className="italic font-normal bg-linear-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
                                 back.
                             </span>
                         </h1>
                         <p className="mt-2 text-xs sm:text-sm text-neutral-300">
                             Please enter your details to sign in to your account.
                         </p>
-
-                        {errorMsg && (
-                            <motion.div
-                                initial={{ opacity: 0, y: -8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="mt-6 flex items-center gap-2.5 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-xs text-red-400"
-                            >
-                                <PiWarningCircleBold className="text-base shrink-0" />
-                                <span>{errorMsg}</span>
-                            </motion.div>
-                        )}
 
                         <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
                             {/* Email */}
@@ -216,7 +190,7 @@ navigate("/feed");
                                 </div>
                             </div>
 
-                            {/* Submit Button matching Contact Page Action Button */}
+                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 disabled={loading}
@@ -242,8 +216,6 @@ navigate("/feed");
                     </div>
                 </div>
             </motion.div>
-
-          
         </section>
     );
 }

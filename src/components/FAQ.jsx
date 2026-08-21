@@ -8,7 +8,7 @@ function FaqItem({ item, index, isOpen, onToggle }) {
 
   return (
     <div
-      className={`relative rounded-2xl sm:rounded-3xl border transition-all duration-300 backdrop-blur-xl overflow-hidden ${isOpen
+      className={`relative rounded-2xl sm:rounded-3xl border transition-all duration-300 backdrop-blur-xl overflow-hidden font-sans ${isOpen
         ? "border-[#DAB25A]/60 bg-neutral-900/80 shadow-[0_10px_30px_rgba(218,178,90,0.12)]"
         : "border-[#DAB25A]/20 bg-neutral-900/40 hover:border-[#DAB25A]/40 hover:bg-neutral-900/60"
         }`}
@@ -24,7 +24,7 @@ function FaqItem({ item, index, isOpen, onToggle }) {
       >
         <div className="flex items-center gap-2.5 sm:gap-4">
           <span
-            className={`font-['Playfair_Display',serif] text-sm sm:text-base font-bold transition-colors ${isOpen ? "text-[#DAB25A]" : "text-neutral-500"
+            className={`font-serif text-sm sm:text-base font-bold transition-colors ${isOpen ? "text-[#DAB25A]" : "text-neutral-500"
               }`}
           >
             {formattedIndex}
@@ -70,19 +70,19 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-8 sm:py-12 lg:py-14 bg-[#121214] text-white overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <section className="py-8 sm:py-12 lg:py-14 bg-[#121214] text-white overflow-hidden font-sans">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
 
           {/* Left Side Content */}
-          <div className="lg:col-span-5 flex flex-col justify-between lg:sticky lg:top-20">
+          <div className="lg:col-span-5 flex flex-col justify-between lg:sticky lg:top-20 font-sans">
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full backdrop-blur-md">
                 <PiQuestionFill className="text-[#DAB25A] text-xs sm:text-sm" /> FAQ
               </span>
 
-              <h2 className="mt-3 sm:mt-4 font-['Playfair_Display',serif] font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              <h2 className="mt-3 sm:mt-4 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
                 Got questions? <br className="hidden sm:inline" />
                 We've got{" "}
                 <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
