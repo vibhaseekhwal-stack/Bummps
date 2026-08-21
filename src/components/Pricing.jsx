@@ -27,7 +27,7 @@ export default function BummpsPlansPage() {
     },
     {
       id: "bummpsPlus",
-      name: "bummps+",
+      name: "bummps Plus",
       tagline: "The optimal mix of reach and high-priority matching.",
       price: "$19.99",
       features: [
@@ -222,7 +222,7 @@ export default function BummpsPlansPage() {
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
                   {billingCycle === "annual" ? "Annual Billing (40% Off)" : "Monthly Flexible"}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-sans font-bold text-white tracking-wide">
+                <h3 className="text-2xl sm:text-3xl font-sans font-bold text-[#DAB25A] tracking-wide">
                   {plans.find((p) => p.id === selectedPlan)?.name}
                 </h3>
               </div>
