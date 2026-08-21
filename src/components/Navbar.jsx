@@ -173,13 +173,13 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Links */}
-            <div className="relative flex flex-col gap-4 text-center my-auto z-10 font-serif">
+            <div className="relative flex flex-col gap-4 text-center my-auto z-10 font-sans">
               {publicNavLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setOpen(false)}
-                  className="py-2.5 px-4 rounded-xl text-white/90 hover:text-[#DAB25A] text-2xl font-bold transition-all active:scale-95"
+                  className="py-2.5 px-4 rounded-xl text-white/90 hover:text-[#DAB25A] text-2xl font-bold transition-all active:scale-95 font-sans"
                 >
                   {link.label}
                 </Link>

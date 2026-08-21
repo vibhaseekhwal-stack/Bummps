@@ -27,7 +27,7 @@ export default function BummpsPlansPage() {
     },
     {
       id: "bummpsPlus",
-      name: "bummps+",
+      name: "bummps Plus",
       tagline: "The optimal mix of reach and high-priority matching.",
       price: "$19.99",
       features: [
@@ -82,10 +82,10 @@ export default function BummpsPlansPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
+            className="font-sans font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
           >
             Elevate Your{" "}
-            <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+            <span className="font-sans font-extrabold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               Journey.
             </span>
           </motion.h2>
@@ -164,13 +164,13 @@ export default function BummpsPlansPage() {
 
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#DAB25A] font-serif">
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#DAB25A] font-sans">
                         {plan.name}
                       </h3>
                       <p className="text-xs text-neutral-400 mt-1 max-w-xs leading-relaxed">{plan.tagline}</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-2xl sm:text-3xl font-bold text-white font-serif tracking-tight">
+                      <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
                         {plan.price}
                       </span>
                       <span className="text-xs text-neutral-400 font-medium ml-1">
@@ -222,7 +222,7 @@ export default function BummpsPlansPage() {
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
                   {billingCycle === "annual" ? "Annual Billing (40% Off)" : "Monthly Flexible"}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-wide">
+                <h3 className="text-2xl sm:text-3xl font-sans font-bold text-[#DAB25A] tracking-wide">
                   {plans.find((p) => p.id === selectedPlan)?.name}
                 </h3>
               </div>
@@ -247,7 +247,7 @@ export default function BummpsPlansPage() {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   TOTAL DUE TODAY
                 </span>
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#DAB25A] tracking-tight">
+                <span className="font-sans text-3xl sm:text-4xl font-bold text-[#DAB25A] tracking-tight">
                   {plans.find((p) => p.id === selectedPlan)?.price}
                 </span>
               </div>

@@ -58,11 +58,11 @@ export default function Footer() {
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[300px] w-[600px] rounded-full bg-[#DAB25A]/10 blur-[130px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 sm:pt-5">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 sm:pt-5 font-sans">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-16 border-b border-[#DAB25A]/15">
 
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-2 space-y-5 font-sans">
 
             <a
               href="#home"
@@ -71,14 +71,14 @@ export default function Footer() {
               <BummpsLogo className="h-9 sm:h-10" />
             </a>
 
-            <p className="text-sm text-neutral-400 leading-relaxed max-w-sm font-normal">
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-sm font-normal font-sans">
               Bummps pairs thoughtful matching with verified, real people —
               so every conversation has a real chance of becoming something real.
             </p>
 
             <form
               onSubmit={handleSubscribe}
-              className="pt-2 max-w-sm"
+              className="pt-2 max-w-sm font-sans"
             >
               <div className="relative flex items-center">
 
@@ -88,12 +88,12 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email to join..."
-                  className="w-full rounded-full bg-[#121214] px-5 py-3 pr-28 text-xs text-white placeholder:text-neutral-500 border border-[#DAB25A]/30 focus:outline-none focus:border-[#DAB25A] focus:text-white caret-[#DAB25A] backdrop-blur-xl transition-all shadow-[inset_0_0_0px_1000px_#121214] [-webkit-text-fill-color:white]"
+                  className="w-full rounded-full bg-[#121214] px-5 py-3 pr-28 text-xs text-white placeholder:text-neutral-500 border border-[#DAB25A]/30 focus:outline-none focus:border-[#DAB25A] focus:text-white caret-[#DAB25A] backdrop-blur-xl transition-all shadow-[inset_0_0_0px_1000px_#121214] [-webkit-text-fill-color:white] font-sans"
                 />
 
                 <button
                   type="submit"
-                  className="absolute right-1.5 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold uppercase tracking-wider text-[11px] px-4 py-2 rounded-full transition-all active:scale-95 cursor-pointer flex items-center gap-1 shrink-0"
+                  className="absolute right-1.5 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold uppercase tracking-wider text-[11px] px-4 py-2 rounded-full transition-all active:scale-95 cursor-pointer flex items-center gap-1 shrink-0 font-sans"
                 >
                   <span>
                     {subscribed ? "✓ Joined" : "Join"}
@@ -109,11 +109,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-sans text-base font-bold text-white tracking-wide mb-4">
               Explore
             </h4>
 
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm font-sans">
               {navLinks &&
                 navLinks.map((l) => (
                   <li key={l.href}>
@@ -129,11 +129,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-sans text-base font-bold text-white tracking-wide mb-4">
               Company
             </h4>
 
-            <ul className="space-y-3 text-sm text-neutral-400">
+            <ul className="space-y-3 text-sm text-neutral-400 font-sans">
               <li>
                 <a
                   href="#"
@@ -173,11 +173,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif text-base font-bold text-white tracking-wide mb-4">
+            <h4 className="font-sans text-base font-bold text-white tracking-wide mb-4">
               Trust & Safety
             </h4>
 
-            <ul className="space-y-3 text-sm text-neutral-400">
+            <ul className="space-y-3 text-sm text-neutral-400 font-sans">
               <li>
                 <a
                   href="#"
@@ -217,7 +217,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 pb-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-neutral-400">
+        <div className="pt-8 pb-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-neutral-400 font-sans">
 
           <p>
             © {new Date().getFullYear()} Bummps Inc. All rights reserved.
@@ -231,14 +231,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="grid h-9 w-9 place-items-center rounded-full border border-[#DAB25A]/20 bg-neutral-800/40 text-[#DAB25A] hover:bg-[#DAB25A] hover:text-black hover:border-transparent transition-all duration-300 text-sm active:scale-95 cursor-pointer backdrop-blur-md"
+                className="grid h-9 w-9 place-items-center rounded-full border border-[#DAB25A]/20 bg-neutral-800/40 text-[#DAB25A] hover:bg-[#DAB25A] hover:text-black hover:border-transparent transition-all duration-300 text-sm active:scale-95 cursor-pointer backdrop-blur-md font-sans"
               >
                 {s.icon}
               </a>
             ))}
           </div>
 
-          <p className="flex items-center gap-1.5">
+          <p className="flex items-center gap-1.5 font-sans">
             Made with
             <PiHeartFill className="text-[#DAB25A] text-sm drop-shadow-[0_0_8px_rgba(218,178,90,0.6)]" />
             for real connections.

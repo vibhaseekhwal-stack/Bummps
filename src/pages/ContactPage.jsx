@@ -75,9 +75,9 @@ export default function Contact() {
               <PiSparkleFill className="text-xs" /> Direct Support Line
             </span>
 
-            <h2 className="mt-5 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+            <h2 className="mt-5 font-sans font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
               Let's start a conversation with{" "}
-              <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+              <span className="font-sans font-extrabold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
                 bummps.
               </span>
             </h2>
@@ -102,7 +102,7 @@ export default function Contact() {
                     <PiLightningFill />
                     <span>Instant Reach Desk</span>
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                  <h3 className="font-sans text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
                     Let's build meaningful connections together.
                   </h3>
                   <p className="text-xs sm:text-sm text-neutral-400 mt-3 leading-relaxed">

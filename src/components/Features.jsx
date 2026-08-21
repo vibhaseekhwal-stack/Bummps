@@ -24,28 +24,28 @@ export default function Features() {
       id="features"
       className="pt-2 pb-2 sm:pt-4 sm:pb-4 lg:pt-6 lg:pb-6 bg-[#121214] text-white overflow-hidden font-sans"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-sans">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="inline-block text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full backdrop-blur-md">
-            Why Bummps
+        <div className="text-center max-w-3xl mx-auto font-sans">
+          <span className="inline-block text-xs font-bold tracking-[0.2em] text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+            Why bummps
           </span>
 
-          <h2 className="mt-4 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+          <h2 className="mt-4 font-sans font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
             Built for{" "}
-            <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+            <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               better connections
             </span>
           </h2>
 
-          <p className="mt-3 text-neutral-300 text-base sm:text-lg leading-relaxed font-normal">
+          <p className="mt-3 text-neutral-300 text-base sm:text-lg leading-relaxed font-normal font-sans">
             Everything you need to discover, match, and meet your right person seamlessly.
           </p>
         </div>
 
         {/* Feature Grid */}
-        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 font-sans">
           {features.map((f, i) => {
             const Icon = icons[f.icon] || PiSparkleFill;
 
@@ -74,18 +74,18 @@ export default function Features() {
                         <Icon />
                       </div>
 
-                      <span className="font-serif text-xl sm:text-2xl font-bold text-neutral-600 group-hover:text-[#DAB25A]/60 transition-colors">
+                      <span className="font-sans text-xl sm:text-2xl font-bold text-neutral-600 group-hover:text-[#DAB25A]/60 transition-colors">
                         0{i + 1}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="mt-5 sm:mt-6 font-serif font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors">
+                    <h3 className="mt-5 sm:mt-6 font-sans font-bold text-xl sm:text-2xl text-white group-hover:text-[#DAB25A] transition-colors">
                       {f.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-2.5 sm:mt-3 text-neutral-300 text-sm sm:text-base leading-relaxed font-light sm:font-normal">
+                    <p className="mt-2.5 sm:mt-3 text-neutral-300 text-sm sm:text-base leading-relaxed font-light sm:font-normal font-sans">
                       {f.desc}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ export default function Features() {
                   {/* Corner Accent Decorator */}
                   <div className="mt-4 sm:mt-6 pt-3 border-t border-white/5 flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#DAB25A]" />
-                    <span className="text-[11px] font-semibold tracking-wider text-neutral-400 uppercase">
+                    <span className="text-[11px] font-semibold tracking-wider text-neutral-400 uppercase font-sans">
                       Bummps Exclusive
                     </span>
                   </div>

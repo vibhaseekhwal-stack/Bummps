@@ -59,17 +59,17 @@ export default function Hero() {
 
             {/* MAIN HERO HEADING */}
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-5 font-serif font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-white tracking-tight"
-            >
-              Find someone{" "}
-              <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-                worth
-              </span>{" "}
-              <br className="hidden sm:block" /> the story.
-            </motion.h1>
+  initial={{ opacity: 0, y: 24 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.1 }}
+  className="mt-5 font-sans font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-white tracking-tight"
+>
+  Find someone{" "}
+  <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+    worth
+  </span>{" "}
+  <br className="hidden sm:block" /> the story.
+</motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 24 }}

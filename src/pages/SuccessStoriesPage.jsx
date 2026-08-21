@@ -180,10 +180,10 @@ export default function JourneysToForever() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
+            className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
           >
             Journeys to{" "}
-            <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+            <span className="font-sans font-extrabold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               Forever.
             </span>
           </motion.h2>
@@ -218,7 +218,7 @@ export default function JourneysToForever() {
               placeholder="Search couples or city..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-neutral-900/60 border border-[#DAB25A]/20 text-white text-xs sm:text-sm rounded-xl sm:rounded-2xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-[#DAB25A] focus:ring-1 focus:ring-[#DAB25A] transition-all placeholder-neutral-500"
+              className="w-full bg-neutral-900/60 border border-[#DAB25A]/20 text-white text-xs sm:text-sm rounded-xl sm:rounded-2xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-[#DAB25A] focus:ring-1 focus:ring-[#DAB25A] transition-all placeholder-neutral-500 font-sans"
             />
           </div>
 
@@ -228,7 +228,7 @@ export default function JourneysToForever() {
               <button
                 key={tab}
                 onClick={() => setActiveFilter(tab)}
-                className={`px-4 py-2 rounded-xl sm:rounded-2xl text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl sm:rounded-2xl text-xs font-semibold transition-all cursor-pointer font-sans ${
                   activeFilter === tab
                     ? "bg-[#DAB25A] text-black shadow-[0_0_15px_rgba(218,178,90,0.3)] font-bold"
                     : "bg-neutral-900/60 border border-[#DAB25A]/20 text-neutral-400 hover:text-white hover:border-[#DAB25A]/50"
@@ -242,7 +242,7 @@ export default function JourneysToForever() {
           {/* Submit Button */}
           <button
             onClick={() => setIsSubmitModalOpen(true)}
-            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl sm:rounded-2xl transition-all shadow-[0_4px_20px_rgba(218,178,90,0.25)] cursor-pointer shrink-0 active:scale-95"
+            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl sm:rounded-2xl transition-all shadow-[0_4px_20px_rgba(218,178,90,0.25)] cursor-pointer shrink-0 active:scale-95 font-sans"
           >
             <PiPlusBold className="text-sm" /> Share Story
           </button>
@@ -250,11 +250,11 @@ export default function JourneysToForever() {
 
         {/* Stories Grid */}
         {filteredStories.length === 0 ? (
-          <div className="text-center py-16 bg-neutral-900/40 rounded-3xl border border-dashed border-[#DAB25A]/20 backdrop-blur-xl">
+          <div className="text-center py-16 bg-neutral-900/40 rounded-3xl border border-dashed border-[#DAB25A]/20 backdrop-blur-xl font-sans">
             <p className="text-neutral-400 text-sm">No {activeFilter !== "All" ? activeFilter.toLowerCase() : ""} stories match your criteria.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 font-sans">
             {filteredStories.map((story, i) => (
               <motion.div
                 key={story.id}
@@ -280,39 +280,39 @@ export default function JourneysToForever() {
                         </div>
 
                         <div>
-                          <h3 className="font-serif font-bold text-lg sm:text-xl text-white group-hover:text-[#DAB25A] transition-colors leading-tight">
+                          <h3 className="font-sans font-bold text-lg sm:text-xl text-white group-hover:text-[#DAB25A] transition-colors leading-tight">
                             {story.names}
                           </h3>
-                          <p className="text-[11px] text-neutral-400 flex items-center gap-1 mt-0.5">
+                          <p className="text-[11px] text-neutral-400 flex items-center gap-1 mt-0.5 font-sans">
                             <PiMapPinFill className="text-[#DAB25A]" /> {story.location}
                           </p>
                         </div>
                       </div>
 
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#DAB25A]/10 text-[#DAB25A] border border-[#DAB25A]/30 shrink-0">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#DAB25A]/10 text-[#DAB25A] border border-[#DAB25A]/30 shrink-0 font-sans">
                         <PiHeartFill className="text-[10px]" /> {story.status}
                       </span>
                     </div>
 
                     <div className="bg-neutral-900/60 rounded-xl sm:rounded-2xl p-3.5 border border-[#DAB25A]/10 mb-4 group-hover:border-[#DAB25A]/30 transition-all relative">
                       <PiQuotesFill className="absolute top-2 right-3 text-lg text-[#DAB25A]/30" />
-                      <blockquote className="italic text-[#F3E5AB] text-xs font-medium leading-relaxed pr-4">
+                      <blockquote className="italic text-[#F3E5AB] text-xs font-medium leading-relaxed pr-4 font-sans">
                         "{story.quote}"
                       </blockquote>
                     </div>
 
-                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed line-clamp-3 font-normal mb-6">
+                    <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed line-clamp-3 font-normal mb-6 font-sans">
                       {story.shortStory}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-[#DAB25A]/10 flex items-center justify-between mt-auto">
-                    <span className="text-[11px] text-neutral-400 flex items-center gap-1 font-medium">
+                    <span className="text-[11px] text-neutral-400 flex items-center gap-1 font-medium font-sans">
                       <PiCalendarBlankFill className="text-[#DAB25A]" /> {story.dateMet}
                     </span>
                     <button
                       onClick={() => setSelectedStory(story)}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#DAB25A] uppercase tracking-wider hover:text-white transition-colors cursor-pointer group-hover:translate-x-1 duration-300"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#DAB25A] uppercase tracking-wider hover:text-white transition-colors cursor-pointer group-hover:translate-x-1 duration-300 font-sans"
                     >
                       Full Story <PiArrowRightBold />
                     </button>
@@ -328,7 +328,7 @@ export default function JourneysToForever() {
 
       {/* Story Detail Modal */}
       {selectedStory && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 font-sans">
           <div className="bg-neutral-900 border border-[#DAB25A]/40 rounded-2xl sm:rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedStory(null)}
@@ -349,7 +349,7 @@ export default function JourneysToForever() {
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#DAB25A]/10 text-[#DAB25A] border border-[#DAB25A]/30 mb-1">
                   <PiHeartFill className="text-[10px]" /> {selectedStory.status}
                 </span>
-                <h3 className="font-serif font-bold text-2xl text-white">{selectedStory.names}</h3>
+                <h3 className="font-sans font-bold text-2xl text-white">{selectedStory.names}</h3>
                 <p className="text-xs text-[#DAB25A] font-medium mt-0.5">{selectedStory.location} • {selectedStory.timeline}</p>
               </div>
             </div>
@@ -377,7 +377,7 @@ export default function JourneysToForever() {
 
       {/* Share Story Modal */}
       {isSubmitModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 font-sans">
           <div className="bg-neutral-900 border border-[#DAB25A]/40 rounded-2xl sm:rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
             <button
               onClick={() => setIsSubmitModalOpen(false)}
@@ -386,7 +386,7 @@ export default function JourneysToForever() {
               <PiXBold className="text-xs" />
             </button>
 
-            <h3 className="font-serif text-xl font-bold text-white mb-1">Share Your Journey</h3>
+            <h3 className="font-sans text-xl font-bold text-white mb-1">Share Your Journey</h3>
             <p className="text-xs text-neutral-400 mb-5">Tell us how you met and inspire others!</p>
 
             <form onSubmit={handleFormSubmit} className="space-y-3 text-xs">
@@ -463,7 +463,7 @@ export default function JourneysToForever() {
 
               <button
                 type="submit"
-                className="w-full mt-2 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold py-3 rounded-xl transition-colors uppercase tracking-wider text-xs cursor-pointer shadow-[0_4px_15px_rgba(218,178,90,0.2)]"
+                className="w-full mt-2 bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold py-3 rounded-xl transition-colors uppercase tracking-wider text-xs cursor-pointer shadow-[0_4px_15px_rgba(218,178,90,0.2)] font-sans"
               >
                 Submit Story
               </button>

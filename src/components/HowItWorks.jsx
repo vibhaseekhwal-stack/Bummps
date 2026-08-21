@@ -21,26 +21,26 @@ export default function HowItWorks() {
   return (
     <section className="relative overflow-hidden bg-[#121214] pt-2 pb-14 sm:pt-4 sm:pb-20 lg:pt-6 lg:pb-24 text-white font-sans">
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-sans">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase backdrop-blur-md">
-            <PiSparkleFill /> The Bummps Journey
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 font-sans">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#DAB25A]/30 bg-[#DAB25A]/10 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-[#DAB25A] backdrop-blur-md">
+            <PiSparkleFill /> The bummps Journey
           </span>
-          <h2 className="mt-4 font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="mt-4 font-sans text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
             Seamlessly{" "}
-            <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+            <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
               interwoven.
             </span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-neutral-400">
+          <p className="mt-3 text-sm sm:text-base text-neutral-400 font-sans">
             An effortless flow designed for intentional relationships.
           </p>
         </div>
 
         {/* Floating Ribbon Horizontal Layout */}
-        <div className="relative mt-6 sm:mt-10">
+        <div className="relative mt-6 sm:mt-10 font-sans">
 
           {/* Animated Connecting Ribbon Path (Desktop) */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none z-0" aria-hidden="true">
@@ -61,7 +61,7 @@ export default function HowItWorks() {
           </div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10 font-sans">
             {steps.map((s, i) => {
               const Icon = icons[i];
               const isFloatingUp = i % 2 === 0;
@@ -91,10 +91,10 @@ export default function HowItWorks() {
                     </div>
 
                     {/* Step Title & Desc */}
-                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#DAB25A] transition-colors">
+                    <h3 className="font-sans text-lg sm:text-xl font-bold text-white group-hover:text-[#DAB25A] transition-colors">
                       {s.title}
                     </h3>
-                    <p className="mt-2.5 text-xs text-neutral-300 leading-relaxed font-light">
+                    <p className="mt-2.5 text-xs text-neutral-300 leading-relaxed font-light font-sans">
                       {s.desc}
                     </p>
 

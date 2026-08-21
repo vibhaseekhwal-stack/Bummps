@@ -24,12 +24,12 @@ function FaqItem({ item, index, isOpen, onToggle }) {
       >
         <div className="flex items-center gap-2.5 sm:gap-4">
           <span
-            className={`font-serif text-sm sm:text-base font-bold transition-colors ${isOpen ? "text-[#DAB25A]" : "text-neutral-500"
+            className={`font-sans text-sm sm:text-base font-bold transition-colors ${isOpen ? "text-[#DAB25A]" : "text-neutral-500"
               }`}
           >
             {formattedIndex}
           </span>
-          <span className="font-semibold text-sm sm:text-base text-white">
+          <span className="font-semibold text-sm sm:text-base text-white font-sans">
             {item.q}
           </span>
         </div>
@@ -54,7 +54,7 @@ function FaqItem({ item, index, isOpen, onToggle }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1.5 sm:pt-2 border-t border-[#DAB25A]/10 ml-6 sm:ml-9">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1.5 sm:pt-2 border-t border-[#DAB25A]/10 ml-6 sm:ml-9 font-sans">
               <p className="text-neutral-300 text-xs sm:text-sm leading-relaxed font-normal">
                 {item.a}
               </p>
@@ -71,7 +71,7 @@ export default function FAQ() {
 
   return (
     <section className="py-8 sm:py-12 lg:py-14 bg-[#121214] text-white overflow-hidden font-sans">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-sans">
 
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
 
@@ -82,15 +82,15 @@ export default function FAQ() {
                 <PiQuestionFill className="text-[#DAB25A] text-xs sm:text-sm" /> FAQ
               </span>
 
-              <h2 className="mt-3 sm:mt-4 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              <h2 className="mt-3 sm:mt-4 font-sans font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
                 Got questions? <br className="hidden sm:inline" />
                 We've got{" "}
-                <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+                <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
                   answers.
                 </span>
               </h2>
 
-              <p className="mt-3 text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="mt-3 text-neutral-300 text-sm sm:text-base leading-relaxed font-normal font-sans">
                 Everything you need to know about Bummps, matching, and safety. Can't find the answer you're looking for?
               </p>
             </div>
@@ -99,7 +99,7 @@ export default function FAQ() {
             <div className="mt-6 sm:mt-8 p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#DAB25A]/30 bg-neutral-900/60 backdrop-blur-xl relative overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#DAB25A]/10 blur-2xl rounded-full pointer-events-none" />
 
-              <div className="flex items-center gap-3.5 sm:gap-4">
+              <div className="flex items-center gap-3.5 sm:gap-4 font-sans">
                 <span className="grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-xl sm:rounded-2xl bg-[#DAB25A] text-black shrink-0 text-xl sm:text-2xl font-bold shadow-[0_0_15px_rgba(218,178,90,0.3)]">
                   <PiEnvelopeSimpleFill />
                 </span>
@@ -111,7 +111,7 @@ export default function FAQ() {
 
               <a
                 href="#contact"
-                className="mt-4 sm:mt-5 inline-block text-center w-full bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold uppercase tracking-wider py-2.5 sm:py-3 rounded-full shadow-md text-xs transition-all duration-300 active:scale-95 cursor-pointer"
+                className="mt-4 sm:mt-5 inline-block text-center w-full bg-[#DAB25A] hover:bg-[#c49e48] text-black font-bold uppercase tracking-wider py-2.5 sm:py-3 rounded-full shadow-md text-xs transition-all duration-300 active:scale-95 cursor-pointer font-sans"
               >
                 Contact Support
               </a>

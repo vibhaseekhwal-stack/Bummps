@@ -61,20 +61,20 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full font-sans">
+              <span className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.2em] text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full font-sans">
                 <PiHeartFill className="text-[#DAB25A]" /> About bummps
               </span>
             </motion.div>
 
-            {/* Figma Display Heading - Playfair Display */}
-            <h2 className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight">
+            {/* Same Font Heading (Nunito Sans / font-sans) */}
+            <h2 className="font-sans font-bold text-2xl sm:text-4xl lg:text-5xl text-white leading-tight tracking-tight">
               Dating, minus the{" "}
-              <span className="italic font-normal text-[#DAB25A] bg-linear-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent font-serif">
+              <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
                 noise.
               </span>
             </h2>
 
-            {/* Figma Body Text - Plus Jakarta Sans */}
+            {/* Body Text */}
             <p className="font-sans text-neutral-300 text-base sm:text-lg leading-relaxed font-light sm:font-normal">
               We built Bummps because dating apps had become a chore — endless
               swiping, fake profiles, conversations that go nowhere. Bummps
@@ -91,7 +91,7 @@ export default function About() {
             {/* Counter Section */}
             <div className="pt-2 grid grid-cols-2 gap-6 max-w-sm">
               <div className="border-l-2 border-[#DAB25A] pl-4 transition-all duration-300 hover:border-[#F3E5AB]">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-[#DAB25A]">
+                <p className="font-sans text-3xl sm:text-4xl font-bold text-[#DAB25A]">
                   <Counter value={12} suffix="M+" />
                 </p>
                 <p className="font-sans text-xs sm:text-sm text-neutral-400 mt-1 uppercase tracking-wider font-medium">
@@ -100,7 +100,7 @@ export default function About() {
               </div>
 
               <div className="border-l-2 border-[#DAB25A] pl-4 transition-all duration-300 hover:border-[#F3E5AB]">
-                <p className="font-serif text-3xl sm:text-4xl font-bold text-[#DAB25A]">
+                <p className="font-sans text-3xl sm:text-4xl font-bold text-[#DAB25A]">
                   <Counter value={7} suffix=" yrs" />
                 </p>
                 <p className="font-sans text-xs sm:text-sm text-neutral-400 mt-1 uppercase tracking-wider font-medium">

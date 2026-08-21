@@ -37,18 +37,18 @@ export default function Contact() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
 
-        {/* HEADER WITH MATCHING PRICING SECTION HEADING SIZES */}
+        {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
+            className="font-sans font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
           >
             Let's start a conversation with{" "}
-            <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-              Bummps.
+            <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
+              bummps.
             </span>
           </motion.h2>
 
