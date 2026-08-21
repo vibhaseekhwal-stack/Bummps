@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  PiCheckCircleFill, 
+import {
+  PiCheckCircleFill,
   PiSparkleBold,
   PiArrowRightBold,
   PiLockKeyFill,
-  PiShieldCheckFill
+  PiShieldCheckFill,
 } from "react-icons/pi";
+
+import img from "../assets/2.png";
 
 export default function BummpsPlansPage() {
   const [selectedPlan, setSelectedPlan] = useState("bummpsPlus");
@@ -58,15 +60,13 @@ export default function BummpsPlansPage() {
 
   return (
     <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-sans select-none min-h-screen flex flex-col justify-between">
-      
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
-
         {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,7 +77,7 @@ export default function BummpsPlansPage() {
             <span>Membership Experience</span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -90,18 +90,19 @@ export default function BummpsPlansPage() {
             </span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-2.5 text-neutral-300 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed"
           >
-            Select an elite tier crafted to give you unparalleled reach, priority status, and global connections.
+            Select an elite tier crafted to give you unparalleled reach,
+            priority status, and global connections.
           </motion.p>
 
           {/* Billing Toggle */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -138,7 +139,6 @@ export default function BummpsPlansPage() {
 
         {/* MAIN GRID LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
-          
           {/* LEFT SIDE: Tier Cards */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {plans.map((plan) => {
@@ -164,10 +164,19 @@ export default function BummpsPlansPage() {
 
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#DAB25A] font-sans">
-                        {plan.name}
+                      <h3 className="text-xl sm:text-[20px] font-bold text-[#DAB25A] font-sans flex items-center gap-2">
+                        <img
+                          src={img}
+                          alt="bummps"
+                          className="h-7 sm:h-8 w-auto mb-3 object-contain"
+                        />
+
+                        {plan.id === "bummpsPlus" && <span >Plus</span>}
+                        {plan.id === "bummpsPro" && <span>Pro</span>}
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1 max-w-xs leading-relaxed">{plan.tagline}</p>
+                      <p className="text-xs text-neutral-400 mt-1 max-w-xs leading-relaxed">
+                        {plan.tagline}
+                      </p>
                     </div>
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
@@ -198,7 +207,7 @@ export default function BummpsPlansPage() {
           </div>
 
           {/* RIGHT SIDE: Summary Card */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -220,10 +229,19 @@ export default function BummpsPlansPage() {
 
               <div className="mt-5 mb-6">
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
-                  {billingCycle === "annual" ? "Annual Billing (40% Off)" : "Monthly Flexible"}
+                  {billingCycle === "annual"
+                    ? "Annual Billing (40% Off)"
+                    : "Monthly Flexible"}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-sans font-bold text-[#DAB25A] tracking-wide">
-                  {plans.find((p) => p.id === selectedPlan)?.name}
+                <h3 className="text-2xl sm:text-[26px] font-sans font-bold text-[#DAB25A] tracking-wide flex items-center gap-2">
+                  <img
+                    src={img}
+                    alt="bummps"
+                    className="h-9 sm:h-10 w-auto object-contain mb-2"
+                  />
+
+                  {selectedPlan === "bummpsPlus" && <span>Plus</span>}
+                  {selectedPlan === "bummpsPro" && <span>Pro</span>}
                 </h3>
               </div>
 
@@ -234,7 +252,10 @@ export default function BummpsPlansPage() {
                 {plans
                   .find((p) => p.id === selectedPlan)
                   ?.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-200">
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 text-xs sm:text-sm text-neutral-200"
+                    >
                       <PiCheckCircleFill className="text-[#DAB25A] text-lg shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </div>
@@ -252,7 +273,7 @@ export default function BummpsPlansPage() {
                 </span>
               </div>
 
-              <button 
+              <button
                 type="button"
                 className="w-full py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#DAB25A] hover:bg-[#c49e48] text-black shadow-[0_4px_25px_rgba(218,178,90,0.3)] transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 outline-none"
               >
@@ -261,9 +282,7 @@ export default function BummpsPlansPage() {
                 <PiArrowRightBold className="text-sm" />
               </button>
             </div>
-
           </motion.div>
-
         </div>
       </div>
     </section>

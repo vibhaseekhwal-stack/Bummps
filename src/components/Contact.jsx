@@ -15,6 +15,8 @@ import {
   PiSparkleBold,
 } from "react-icons/pi";
 
+import img from '../assets/2.png'
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -36,7 +38,6 @@ export default function Contact() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
-
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <motion.h2
@@ -47,9 +48,25 @@ export default function Contact() {
             className="font-sans font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight"
           >
             Let's start a conversation with{" "}
-            <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-              bummps.
-            </span>
+            {/* <span
+              className="font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent"
+              style={{
+                fontFamily: " sans-serif",
+                display: "inline-flex",
+                alignItems: "center",
+              }}
+            >
+              <span>b</span>
+              <span>u</span>
+
+              <span style={{ marginRight: "-4px" }}>m</span>
+              <span style={{ position: "relative", left: "-1px" }}>m</span>
+
+              <span>p</span>
+              <span>s</span>
+              <span>.</span>
+            </span> */}
+            <img src={img} alt="" className="h-14 sm:h-20 text-center mx-auto"/>
           </motion.h2>
 
           <motion.p
@@ -59,13 +76,13 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-2.5 text-neutral-300 text-sm sm:text-base font-normal max-w-xl mx-auto leading-relaxed"
           >
-            Have a question, feedback, or media inquiry? We're here to help you 24/7.
+            Have a question, feedback, or media inquiry? We're here to help you
+            24/7.
           </motion.p>
         </div>
 
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
-
           {/* LEFT SIDE: Info Deck */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -86,7 +103,8 @@ export default function Contact() {
                   Let's build meaningful connections together.
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed">
-                  Send us a message and our support team will respond within 24 hours guaranteed.
+                  Send us a message and our support team will respond within 24
+                  hours guaranteed.
                 </p>
               </div>
 
@@ -96,8 +114,12 @@ export default function Contact() {
                     <PiMapPinFill />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Headquarters</p>
-                    <p className="text-xs sm:text-sm font-bold text-white">128 Rosewood Ave, San Francisco, CA</p>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                      Headquarters
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-white">
+                      128 Rosewood Ave, San Francisco, CA
+                    </p>
                   </div>
                 </div>
 
@@ -106,8 +128,12 @@ export default function Contact() {
                     <PiPhoneFill />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Call Us Direct</p>
-                    <p className="text-xs sm:text-sm font-bold text-white">+1 (800) 555-0142</p>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                      Call Us Direct
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-white">
+                      +1 (800) 555-0142
+                    </p>
                   </div>
                 </div>
 
@@ -116,16 +142,24 @@ export default function Contact() {
                     <PiEnvelopeSimpleFill />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Email Support</p>
-                    <p className="text-xs sm:text-sm font-bold text-white">hello@bummps.com</p>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                      Email Support
+                    </p>
+                    <p className="text-xs sm:text-sm font-bold text-white">
+                      hello@bummps.com
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 sm:pt-6 border-t border-[#DAB25A]/10 mt-6 sm:mt-8 flex items-center justify-between text-[11px] sm:text-xs text-neutral-400 relative z-10">
-              <span className="flex items-center gap-1.5"><PiShieldCheckBold className="text-[#DAB25A]" /> Encrypted Data</span>
-              <span className="flex items-center gap-1.5"><PiClockBold className="text-[#DAB25A]" /> 24/7 Monitored</span>
+              <span className="flex items-center gap-1.5">
+                <PiShieldCheckBold className="text-[#DAB25A]" /> Encrypted Data
+              </span>
+              <span className="flex items-center gap-1.5">
+                <PiClockBold className="text-[#DAB25A]" /> 24/7 Monitored
+              </span>
             </div>
           </motion.div>
 
@@ -141,38 +175,67 @@ export default function Contact() {
             <div className="space-y-4 sm:space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2">
+                  <label
+                    htmlFor="name"
+                    className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2"
+                  >
                     Your Name
                   </label>
                   <div className="relative">
                     <PiUserBold className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#DAB25A] text-base sm:text-lg z-10" />
-                    <input id="name" type="text" required placeholder="John Doe" className={inputStyle} />
+                    <input
+                      id="name"
+                      type="text"
+                      required
+                      placeholder="John Doe"
+                      className={inputStyle}
+                    />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2"
+                  >
                     Phone Number
                   </label>
                   <div className="relative">
                     <PiPhoneBold className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#DAB25A] text-base sm:text-lg z-10" />
-                    <input id="phone" type="tel" placeholder="+1 (555) 000-0000" className={inputStyle} />
+                    <input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      className={inputStyle}
+                    />
                   </div>
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2">
+                <label
+                  htmlFor="email"
+                  className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2"
+                >
                   Email Address
                 </label>
                 <div className="relative">
                   <PiEnvelopeSimpleBold className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#DAB25A] text-base sm:text-lg z-10" />
-                  <input id="email" type="email" required placeholder="you@example.com" className={inputStyle} />
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    placeholder="you@example.com"
+                    className={inputStyle}
+                  />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2">
+                <label
+                  htmlFor="message"
+                  className="text-xs font-semibold uppercase tracking-wider text-neutral-300 block mb-1.5 sm:mb-2"
+                >
                   Your Message
                 </label>
                 <div className="relative">
@@ -205,7 +268,6 @@ export default function Contact() {
               )}
             </button>
           </motion.form>
-
         </div>
       </div>
     </section>
