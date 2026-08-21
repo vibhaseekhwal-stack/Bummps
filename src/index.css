@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@400;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Nunito Sans', sans-serif;
+  --font-nunito: 'Nunito Sans', sans-serif;
   --font-serif: 'Playfair Display', serif;
   --font-poppins: 'Poppins', sans-serif;
 }
@@ -19,7 +19,7 @@ body,
   padding: 0;
   background: #121214;
   color: #ffffff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 /* Global Font */
@@ -28,7 +28,7 @@ button,
 input,
 textarea,
 select {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 /* Global Headings */
@@ -38,20 +38,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 /* Logo Font */
 .logo,
 .brand-logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
 /* Custom Font Utilities */
+.font-nunito {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .font-playfair {

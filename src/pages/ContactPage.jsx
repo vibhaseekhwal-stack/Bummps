@@ -78,7 +78,7 @@ export default function Contact() {
             <h2 className="mt-5 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
               Let's start a conversation with{" "}
               <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-                Bummps.
+                bummps.
               </span>
             </h2>
 

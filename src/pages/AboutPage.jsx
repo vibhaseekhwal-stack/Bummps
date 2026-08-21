@@ -167,7 +167,7 @@ export default function AboutPage() {
             <h1 className="mt-4 font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
               The Philosophy Behind{" "}
               <span className="italic font-normal text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-                Bummps
+                bummps
               </span>
             </h1>
 

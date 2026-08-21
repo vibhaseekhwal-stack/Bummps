@@ -62,7 +62,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-[#DAB25A] uppercase bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3.5 py-1.5 rounded-full font-sans">
-                <PiHeartFill className="text-[#DAB25A]" /> About Bummps
+                <PiHeartFill className="text-[#DAB25A]" /> About bummps
               </span>
             </motion.div>
 
