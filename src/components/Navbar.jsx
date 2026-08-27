@@ -10,6 +10,7 @@ const publicNavLinks = [
   { label: "About", to: "/about" },
   { label: "Success Stories", to: "/success-stories" },
   { label: "Plans", to: "/our-plans" },
+  { label: "Investors", to: "/investors" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -92,16 +93,26 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 font-sans">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-8 font-sans">
             {publicNavLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-xs uppercase tracking-widest font-semibold text-neutral-300 hover:text-[#DAB25A] transition-colors cursor-pointer relative group py-1"
+                className={`text-xs uppercase tracking-widest font-semibold transition-colors cursor-pointer relative group py-1 ${
+                  location.pathname === link.to
+                    ? "text-[#DAB25A]"
+                    : "text-neutral-300 hover:text-[#DAB25A]"
+                }`}
               >
                 {link.label}
 
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#DAB25A] shadow-[0_0_8px_#DAB25A] transition-all duration-300 group-hover:w-full" />
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-[#DAB25A] shadow-[0_0_8px_#DAB25A] transition-all duration-300 ${
+                    location.pathname === link.to
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
@@ -173,13 +184,17 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Links */}
-            <div className="relative flex flex-col gap-4 text-center my-auto z-10 font-sans">
+            <div className="relative flex flex-col gap-2 text-center my-auto z-10 font-sans">
               {publicNavLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setOpen(false)}
-                  className="py-2.5 px-4 rounded-xl text-white/90 hover:text-[#DAB25A] text-2xl font-bold transition-all active:scale-95 font-sans"
+                  className={`py-2 px-4 rounded-xl text-2xl font-bold transition-all active:scale-95 font-sans ${
+                    location.pathname === link.to
+                      ? "text-[#DAB25A]"
+                      : "text-white/90 hover:text-[#DAB25A]"
+                  }`}
                 >
                   {link.label}
                 </Link>

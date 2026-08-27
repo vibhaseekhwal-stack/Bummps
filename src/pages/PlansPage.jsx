@@ -58,6 +58,8 @@ export default function BummpsPlansPage() {
     },
   ];
 
+  const selectedPlanData = plans.find((p) => p.id === selectedPlan);
+
   return (
     <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-sans select-none min-h-screen flex flex-col justify-between">
       {/* Background Radial Glow */}
@@ -101,7 +103,7 @@ export default function BummpsPlansPage() {
             priority status, and global connections.
           </motion.p>
 
-          {/* Billing Toggle */}
+          {/* BILLING TOGGLE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -120,6 +122,7 @@ export default function BummpsPlansPage() {
             >
               Monthly
             </button>
+
             <button
               type="button"
               onClick={() => setBillingCycle("annual")}
@@ -130,6 +133,7 @@ export default function BummpsPlansPage() {
               }`}
             >
               <span>Annual</span>
+
               <span className="bg-[#121214] text-[#DAB25A] text-[9px] px-2 py-0.5 rounded-full border border-[#DAB25A]/40 font-black">
                 Save 40%
               </span>
@@ -137,12 +141,13 @@ export default function BummpsPlansPage() {
           </motion.div>
         </div>
 
-        {/* MAIN GRID LAYOUT */}
+        {/* MAIN GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
-          {/* LEFT SIDE: Tier Cards */}
+          {/* LEFT SIDE */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {plans.map((plan) => {
               const isSelected = selectedPlan === plan.id;
+
               return (
                 <motion.div
                   key={plan.id}
@@ -156,6 +161,7 @@ export default function BummpsPlansPage() {
                       : "bg-neutral-900/40 border-[#DAB25A]/20 hover:border-[#DAB25A]/50"
                   }`}
                 >
+                  {/* MOST POPULAR */}
                   {plan.isPopular && (
                     <div className="absolute -top-3 right-6 bg-[#DAB25A] text-black text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-[0_4px_15px_rgba(218,178,90,0.3)]">
                       MOST POPULAR
@@ -163,38 +169,58 @@ export default function BummpsPlansPage() {
                   )}
 
                   <div className="flex justify-between items-start mb-4">
+                    {/* PLAN NAME */}
                     <div>
-                      <h3 className="text-xl sm:text-[20px] font-bold text-[#DAB25A] font-sans flex items-center gap-2">
+                      <h3 className="text-xl sm:text-[20px] font-bold text-[#DAB25A] font-sans flex items-center gap-0 leading-none">
                         <img
                           src={img}
                           alt="bummps"
-                          className="h-7 sm:h-8 w-auto mb-3 object-contain"
+                          className="h-7 sm:h-8 w-auto object-contain"
                         />
 
-                        {plan.id === "bummpsPlus" && <span >Plus</span>}
-                        {plan.id === "bummpsPro" && <span>Pro</span>}
+                        {/* PLUS - CENTERED WITH LOGO */}
+                        {plan.id === "bummpsPlus" && (
+                          <span className="text-2xl sm:text-3xl font-extrabold leading-none flex items-center -ml-1 translate-y-[1px]">
+                            +
+                          </span>
+                        )}
+
+                        {plan.id === "bummpsPro" && (
+                          <span className="text-xl sm:text-[20px] leading-none -ml-1 translate-y-[1px]">
+                            Pro
+                          </span>
+                        )}
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1 max-w-xs leading-relaxed">
+
+                      <p className="text-xs text-neutral-400 mt-2 max-w-xs leading-relaxed">
                         {plan.tagline}
                       </p>
                     </div>
+
+                    {/* PRICE */}
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
                         {plan.price}
                       </span>
+
                       <span className="text-xs text-neutral-400 font-medium ml-1">
                         /mo
                       </span>
                     </div>
                   </div>
 
+                  {/* FEATURES */}
                   <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-4 border-t border-[#DAB25A]/10 text-xs text-neutral-300">
                     {plan.features.slice(0, 3).map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2"
+                      >
                         <PiCheckCircleFill className="text-[#DAB25A] text-sm shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
+
                     {plan.features.length > 3 && (
                       <span className="text-[11px] font-bold text-[#DAB25A]">
                         +{plan.features.length - 3} more privileges
@@ -206,7 +232,7 @@ export default function BummpsPlansPage() {
             })}
           </div>
 
-          {/* RIGHT SIDE: Summary Card */}
+          {/* RIGHT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -217,59 +243,76 @@ export default function BummpsPlansPage() {
             <div className="absolute top-0 right-0 w-32 sm:w-40 h-32 sm:h-40 bg-[#DAB25A]/10 rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative z-10">
+              {/* TOP */}
               <div className="flex items-center justify-between pb-4 border-b border-[#DAB25A]/10">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   Selected Tier
                 </span>
+
                 <div className="flex items-center gap-1.5 text-[10px] text-neutral-400 font-medium">
                   <PiLockKeyFill className="text-[#DAB25A]" />
                   <span>Instant Activation</span>
                 </div>
               </div>
 
+              {/* SELECTED PLAN */}
               <div className="mt-5 mb-6">
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
                   {billingCycle === "annual"
                     ? "Annual Billing (40% Off)"
                     : "Monthly Flexible"}
                 </span>
-                <h3 className="text-2xl sm:text-[26px] font-sans font-bold text-[#DAB25A] tracking-wide flex items-center gap-2">
+
+                {/* SELECTED PLUS - CENTERED WITH LOGO */}
+                <h3 className="text-2xl sm:text-[26px] font-sans font-bold text-[#DAB25A] tracking-wide flex items-center gap-0 leading-none">
                   <img
                     src={img}
                     alt="bummps"
-                    className="h-9 sm:h-10 w-auto object-contain mb-2"
+                    className="h-9 sm:h-10 w-auto object-contain"
                   />
 
-                  {selectedPlan === "bummpsPlus" && <span>Plus</span>}
-                  {selectedPlan === "bummpsPro" && <span>Pro</span>}
+                  {selectedPlan === "bummpsPlus" && (
+                    <span className="text-2xl sm:text-3xl font-extrabold leading-none flex items-center -ml-1 translate-y-[1px]">
+                      +
+                    </span>
+                  )}
+
+                  {selectedPlan === "bummpsPro" && (
+                    <span className="text-2xl sm:text-[26px] leading-none -ml-1 translate-y-[1px]">
+                      Pro
+                    </span>
+                  )}
                 </h3>
               </div>
 
+              {/* PRIVILEGES */}
               <div className="space-y-3 mb-8">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   Included Privileges:
                 </p>
-                {plans
-                  .find((p) => p.id === selectedPlan)
-                  ?.features.map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3 text-xs sm:text-sm text-neutral-200"
-                    >
-                      <PiCheckCircleFill className="text-[#DAB25A] text-lg shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+
+                {selectedPlanData?.features.map((feature, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3 text-xs sm:text-sm text-neutral-200"
+                  >
+                    <PiCheckCircleFill className="text-[#DAB25A] text-lg shrink-0 mt-0.5" />
+
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
+            {/* BOTTOM */}
             <div className="pt-6 border-t border-[#DAB25A]/10 relative z-10">
               <div className="flex justify-between items-baseline mb-5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   TOTAL DUE TODAY
                 </span>
+
                 <span className="font-sans text-3xl sm:text-4xl font-bold text-[#DAB25A] tracking-tight">
-                  {plans.find((p) => p.id === selectedPlan)?.price}
+                  {selectedPlanData?.price}
                 </span>
               </div>
 
@@ -278,7 +321,9 @@ export default function BummpsPlansPage() {
                 className="w-full py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#DAB25A] hover:bg-[#c49e48] text-black shadow-[0_4px_25px_rgba(218,178,90,0.3)] transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 outline-none"
               >
                 <PiShieldCheckFill className="text-lg sm:text-xl" />
+
                 <span>Continue to Upgrade</span>
+
                 <PiArrowRightBold className="text-sm" />
               </button>
             </div>
