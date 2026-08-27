@@ -20,6 +20,8 @@ export default function BummpsPlansPage() {
       name: "bummps.",
       tagline: "Essential starter access for casual networking.",
       price: "$9.99",
+      annualPrice: "$59.88",
+      annualMonthlyPrice: "$4.99",
       features: [
         "Up to ~25 swipes per day",
         "Basic matching & chat",
@@ -32,6 +34,8 @@ export default function BummpsPlansPage() {
       name: "bummps Plus",
       tagline: "The optimal mix of reach and high-priority matching.",
       price: "$19.99",
+      annualPrice: "$119.88",
+      annualMonthlyPrice: "$9.99",
       features: [
         "Up to ~75 swipes per day",
         "Priority visibility in discovery",
@@ -46,6 +50,8 @@ export default function BummpsPlansPage() {
       name: "bummps Pro",
       tagline: "Full luxury experience with global reach & maximum status.",
       price: "$29.99",
+      annualPrice: "$179.88",
+      annualMonthlyPrice: "$14.99",
       features: [
         "Unlimited swipes without daily cap",
         "Passport mode — match anywhere globally",
@@ -60,11 +66,28 @@ export default function BummpsPlansPage() {
 
   const selectedPlanData = plans.find((p) => p.id === selectedPlan);
 
+  const getDisplayPrice = (plan) => {
+    if (!plan) return "$0.00";
+
+    return billingCycle === "annual"
+      ? plan.annualMonthlyPrice
+      : plan.price;
+  };
+
+  const getTotalPrice = (plan) => {
+    if (!plan) return "$0.00";
+
+    return billingCycle === "annual"
+      ? plan.annualPrice
+      : plan.price;
+  };
+
   return (
     <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-sans select-none min-h-screen flex flex-col justify-between">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
+        {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -101,6 +124,7 @@ export default function BummpsPlansPage() {
             priority status, and global connections.
           </motion.p>
 
+          {/* BILLING TOGGLE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -132,13 +156,15 @@ export default function BummpsPlansPage() {
               <span>Annual</span>
 
               <span className="bg-[#121214] text-[#DAB25A] text-[9px] px-2 py-0.5 rounded-full border border-[#DAB25A]/40 font-black">
-                Save 40%
+                Save 50%
               </span>
             </button>
           </motion.div>
         </div>
 
+        {/* MAIN CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
+          {/* PLANS */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {plans.map((plan) => {
               const isSelected = selectedPlan === plan.id;
@@ -189,20 +215,30 @@ export default function BummpsPlansPage() {
                       </p>
                     </div>
 
+                    {/* PRICE */}
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
-                        {plan.price}
+                        {getDisplayPrice(plan)}
                       </span>
 
                       <span className="text-xs text-neutral-400 font-medium ml-1">
                         /mo
                       </span>
+
+                      {billingCycle === "annual" && (
+                        <div className="text-[9px] text-[#DAB25A] mt-1 font-bold">
+                          billed annually
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-4 border-t border-[#DAB25A]/10 text-xs text-neutral-300">
                     {plan.features.slice(0, 3).map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2"
+                      >
                         <PiCheckCircleFill className="text-[#DAB25A] text-sm shrink-0" />
                         <span>{feat}</span>
                       </div>
@@ -219,6 +255,7 @@ export default function BummpsPlansPage() {
             })}
           </div>
 
+          {/* CHECKOUT / SELECTED PLAN */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -242,7 +279,9 @@ export default function BummpsPlansPage() {
 
               <div className="mt-5 mb-6">
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
-                  Annual Billing (40% Off)
+                  {billingCycle === "annual"
+                    ? "Annual Billing"
+                    : "Monthly Billing"}
                 </span>
 
                 <h3 className="text-2xl sm:text-[26px] font-sans font-bold text-[#DAB25A] tracking-wide flex items-center gap-0 leading-none">
@@ -283,14 +322,23 @@ export default function BummpsPlansPage() {
               </div>
             </div>
 
+            {/* TOTAL */}
             <div className="pt-6 border-t border-[#DAB25A]/10 relative z-10">
               <div className="flex justify-between items-baseline mb-5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
-                  TOTAL DUE TODAY
-                </span>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                    TOTAL DUE TODAY
+                  </span>
+
+                  {billingCycle === "annual" && (
+                    <p className="text-[9px] text-neutral-500 mt-1">
+                      Annual membership payment
+                    </p>
+                  )}
+                </div>
 
                 <span className="font-sans text-3xl sm:text-4xl font-bold text-[#DAB25A] tracking-tight">
-                  {selectedPlanData?.price}
+                  {getTotalPrice(selectedPlanData)}
                 </span>
               </div>
 
