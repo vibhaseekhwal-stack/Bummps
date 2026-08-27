@@ -62,11 +62,9 @@ export default function BummpsPlansPage() {
 
   return (
     <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 lg:pb-14 bg-[#121214] text-white overflow-hidden font-sans select-none min-h-screen flex flex-col justify-between">
-      {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
-        {/* HEADER SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -103,7 +101,6 @@ export default function BummpsPlansPage() {
             priority status, and global connections.
           </motion.p>
 
-          {/* BILLING TOGGLE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -141,9 +138,7 @@ export default function BummpsPlansPage() {
           </motion.div>
         </div>
 
-        {/* MAIN GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
-          {/* LEFT SIDE */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {plans.map((plan) => {
               const isSelected = selectedPlan === plan.id;
@@ -161,7 +156,6 @@ export default function BummpsPlansPage() {
                       : "bg-neutral-900/40 border-[#DAB25A]/20 hover:border-[#DAB25A]/50"
                   }`}
                 >
-                  {/* MOST POPULAR */}
                   {plan.isPopular && (
                     <div className="absolute -top-3 right-6 bg-[#DAB25A] text-black text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-[0_4px_15px_rgba(218,178,90,0.3)]">
                       MOST POPULAR
@@ -169,7 +163,6 @@ export default function BummpsPlansPage() {
                   )}
 
                   <div className="flex justify-between items-start mb-4">
-                    {/* PLAN NAME */}
                     <div>
                       <h3 className="text-xl sm:text-[20px] font-bold text-[#DAB25A] font-sans flex items-center gap-0 leading-none">
                         <img
@@ -178,7 +171,6 @@ export default function BummpsPlansPage() {
                           className="h-7 sm:h-8 w-auto object-contain"
                         />
 
-                        {/* PLUS - CENTERED WITH LOGO */}
                         {plan.id === "bummpsPlus" && (
                           <span className="text-2xl sm:text-3xl font-extrabold leading-none flex items-center -ml-1 translate-y-[1px]">
                             +
@@ -197,7 +189,6 @@ export default function BummpsPlansPage() {
                       </p>
                     </div>
 
-                    {/* PRICE */}
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
                         {plan.price}
@@ -209,13 +200,9 @@ export default function BummpsPlansPage() {
                     </div>
                   </div>
 
-                  {/* FEATURES */}
                   <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-4 border-t border-[#DAB25A]/10 text-xs text-neutral-300">
                     {plan.features.slice(0, 3).map((feat, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-2"
-                      >
+                      <div key={idx} className="flex items-center gap-2">
                         <PiCheckCircleFill className="text-[#DAB25A] text-sm shrink-0" />
                         <span>{feat}</span>
                       </div>
@@ -232,7 +219,6 @@ export default function BummpsPlansPage() {
             })}
           </div>
 
-          {/* RIGHT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -243,7 +229,6 @@ export default function BummpsPlansPage() {
             <div className="absolute top-0 right-0 w-32 sm:w-40 h-32 sm:h-40 bg-[#DAB25A]/10 rounded-full blur-2xl pointer-events-none" />
 
             <div className="relative z-10">
-              {/* TOP */}
               <div className="flex items-center justify-between pb-4 border-b border-[#DAB25A]/10">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   Selected Tier
@@ -255,15 +240,11 @@ export default function BummpsPlansPage() {
                 </div>
               </div>
 
-              {/* SELECTED PLAN */}
               <div className="mt-5 mb-6">
                 <span className="text-[11px] font-bold text-[#DAB25A] bg-[#DAB25A]/10 border border-[#DAB25A]/30 px-3 py-1 rounded-full inline-block mb-3">
-                  {billingCycle === "annual"
-                    ? "Annual Billing (40% Off)"
-                    : "Monthly Flexible"}
+                  Annual Billing (40% Off)
                 </span>
 
-                {/* SELECTED PLUS - CENTERED WITH LOGO */}
                 <h3 className="text-2xl sm:text-[26px] font-sans font-bold text-[#DAB25A] tracking-wide flex items-center gap-0 leading-none">
                   <img
                     src={img}
@@ -285,7 +266,6 @@ export default function BummpsPlansPage() {
                 </h3>
               </div>
 
-              {/* PRIVILEGES */}
               <div className="space-y-3 mb-8">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
                   Included Privileges:
@@ -297,14 +277,12 @@ export default function BummpsPlansPage() {
                     className="flex items-start gap-3 text-xs sm:text-sm text-neutral-200"
                   >
                     <PiCheckCircleFill className="text-[#DAB25A] text-lg shrink-0 mt-0.5" />
-
                     <span>{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* BOTTOM */}
             <div className="pt-6 border-t border-[#DAB25A]/10 relative z-10">
               <div className="flex justify-between items-baseline mb-5">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
@@ -321,9 +299,7 @@ export default function BummpsPlansPage() {
                 className="w-full py-3.5 sm:py-4 rounded-full font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#DAB25A] hover:bg-[#c49e48] text-black shadow-[0_4px_25px_rgba(218,178,90,0.3)] transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 outline-none"
               >
                 <PiShieldCheckFill className="text-lg sm:text-xl" />
-
                 <span>Continue to Upgrade</span>
-
                 <PiArrowRightBold className="text-sm" />
               </button>
             </div>
