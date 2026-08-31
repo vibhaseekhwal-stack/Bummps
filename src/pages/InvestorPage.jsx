@@ -523,36 +523,7 @@ export default function InvestorPage() {
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 15,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              delay: 0.25,
-            }}
-            className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[10px] sm:text-[11px] text-neutral-500"
-          >
-            <div className="flex items-center gap-2">
-              <PiShieldCheckFill className="text-[#DAB25A]" />
-              <span>Private Investor Enquiries</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <PiLockKeyFill className="text-[#DAB25A]" />
-              <span>Secure Information Handling</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <PiCheckCircleFill className="text-[#DAB25A]" />
-              <span>Direct Team Follow-up</span>
-            </div>
-          </motion.div>
+          
         </div>
       </section>
     </div>
