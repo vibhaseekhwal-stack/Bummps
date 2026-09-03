@@ -271,60 +271,6 @@ export default function AboutPage() {
             })}
           </div>
         </motion.div>
-
-        {/* SECTION 3: TRUST & SECURITY */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
-          className="border-t border-[#DAB25A]/20 pt-16 sm:pt-20"
-        >
-          <div className="text-center max-w-3xl mx-auto">
-            <GoldBadge>TRUST & SECURITY</GoldBadge>
-
-            <h2 className="mt-5 font-sans font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.15] text-white tracking-tight">
-              Your safety and peace of mind{" "}
-              <span className="font-sans font-bold text-[#DAB25A] bg-gradient-to-r from-[#DAB25A] via-[#F3E5AB] to-[#DAB25A] bg-clip-text text-transparent">
-                come first
-              </span>
-            </h2>
-
-            <p className="mt-5 max-w-lg mx-auto text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
-              Safety is not an optional feature at Bummps; it is the foundational standard that guides our entire infrastructure.
-            </p>
-          </div>
-
-          <div className="mt-8 max-w-4xl mx-auto space-y-4 text-neutral-300 text-base sm:text-lg leading-relaxed font-normal text-center sm:text-left">
-            <p>
-              Navigating online dating requires trust, yet fake profiles and privacy risks often compromise user confidence. Bummps bridges this gap by enforcing strict safety measures across every layer of the platform.
-            </p>
-            <p>
-              Our multi-step authentication process guarantees that every profile represents a real individual. Through live facial checks, identity verification, and round-the-clock moderation, we maintain an authentic community free from bots.
-            </p>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-[#DAB25A]/20 pt-10">
-            {safetyCards.map((s) => (
-              <div
-                key={s.title}
-                className="rounded-2xl border border-[#DAB25A]/20 bg-neutral-800/50 p-6 backdrop-blur-xl shadow-lg hover:border-[#DAB25A]/40 transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <h3 className="font-sans font-bold text-[#DAB25A] text-base sm:text-lg flex items-center gap-2">
-                    <PiCheckCircleFill className="text-[#DAB25A] shrink-0 text-lg" />
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
-                    {s.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
       </div>
     </div>
   );
