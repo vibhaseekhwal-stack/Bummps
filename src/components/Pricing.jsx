@@ -87,7 +87,6 @@ export default function BummpsPlansPage() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-gradient-to-tr from-[#DAB25A]/15 via-[#F3E5AB]/5 to-transparent blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
-        {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -124,7 +123,6 @@ export default function BummpsPlansPage() {
             priority status, and global connections.
           </motion.p>
 
-          {/* BILLING TOGGLE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -162,9 +160,7 @@ export default function BummpsPlansPage() {
           </motion.div>
         </div>
 
-        {/* MAIN CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-stretch font-sans">
-          {/* PLANS */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5">
             {plans.map((plan) => {
               const isSelected = selectedPlan === plan.id;
@@ -204,7 +200,7 @@ export default function BummpsPlansPage() {
                         )}
 
                         {plan.id === "bummpsPro" && (
-                          <span className="text-xl sm:text-[20px] leading-none -ml-1 translate-y-[1px]">
+                          <span className="text-xl sm:text-[20px] leading-none -ml-1 relative top-[3px]">
                             Pro
                           </span>
                         )}
@@ -215,7 +211,6 @@ export default function BummpsPlansPage() {
                       </p>
                     </div>
 
-                    {/* PRICE */}
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-bold text-white font-sans tracking-tight">
                         {getDisplayPrice(plan)}
@@ -255,7 +250,6 @@ export default function BummpsPlansPage() {
             })}
           </div>
 
-          {/* CHECKOUT / SELECTED PLAN */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -298,7 +292,7 @@ export default function BummpsPlansPage() {
                   )}
 
                   {selectedPlan === "bummpsPro" && (
-                    <span className="text-2xl sm:text-[26px] leading-none -ml-1 translate-y-[1px]">
+                    <span className="text-2xl sm:text-[26px] leading-none -ml-1 relative top-[4px]">
                       Pro
                     </span>
                   )}
@@ -322,7 +316,6 @@ export default function BummpsPlansPage() {
               </div>
             </div>
 
-            {/* TOTAL */}
             <div className="pt-6 border-t border-[#DAB25A]/10 relative z-10">
               <div className="flex justify-between items-baseline mb-5">
                 <div>
